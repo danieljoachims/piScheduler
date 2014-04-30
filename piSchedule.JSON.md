@@ -29,7 +29,7 @@ piSchedule.JSON.md
 
       state_and_time   = { "switch" : "switchDef" *[";switchDef"]}
                        ;
-                       ; 'switchDef' can occure morre than once.
+                       ; 'switchDef' CAN occure more than once.
 
  
 
@@ -48,7 +48,7 @@ piSchedule.JSON.md
       vTime            = OPTIONAL, if NOT defined vTime = actual date/time
                        ; vTime without a date is parsed to actual day
 
-                       ; vTime can be 'sunrise' OR 'sunset' but the Latitude and
+                       ; vTime CAN 'sunrise' OR 'sunset' but the 'Latitude' and
                        ; 'Longitude' HAS to be defined in 'pySchedule.prefs.json'
 
 
@@ -57,4 +57,5 @@ piSchedule.JSON.md
    A very flexible date/time handling is achieved with using [dateutil](http://labix.org/python-dateutil/). 
    That utility allows piSchedule to support a very brod range of date/time formats. 
    
+   __Sunrise/Sunset__
    Also switching based on sunrise/sunset is possible. 'ephem' is used for that, for details see [pyphem](http://rhodesmill.org/pyephem/)
