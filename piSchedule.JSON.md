@@ -63,6 +63,6 @@ piSchedule.JSON.md
    Also switching based on sunrise/sunset is possible. 'ephem' is used for that, for details see [pyphem](http://rhodesmill.org/pyephem/)
    
    
-   __Example_
+   __Example__
    
    See ´piSchedule.json´
