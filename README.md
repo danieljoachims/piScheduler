@@ -11,7 +11,7 @@ piScheduler
          http:// + server + ':' + port + message
 ```
    Parameters 
-   __server__ and __port__ have to be stored in a file named __piSchedule.PARAM.json__
+   __server__ and __port__ have to be stored in a file named __piSchedule.prefs.json__
    
    __message__ is build in consistence with the pilight-config definitions
       and are stored in a JSON file and holds ```location```, ```devices``` and ```times with state on/off```
