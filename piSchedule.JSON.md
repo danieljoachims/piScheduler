@@ -23,13 +23,13 @@ piSchedule.JSON.md
 
 
       state            = "on" | "off"
-                       ;
-                       ; This is direct switching method and will be exceuted 
-                       ; as 'piSchedule' is called.
+                       
+                         This is direct switching method and will be exceuted 
+                         as 'piSchedule' is called.
 
       state_and_time   = { "switch" : "switchDef" *[";switchDef"]}
-                       ;
-                       ; 'switchDef' CAN occure more than once but MUST occure once.
+                       
+                         'switchDef' MUST occure once and CAN occure more than once.
 
  
 
