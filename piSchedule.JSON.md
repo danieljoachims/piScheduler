@@ -13,9 +13,14 @@ piSchedule.JSON.md
           }
        }
     }
-```
 
+```
+   A 'state' OR 'state_and_time' is REQUIRED, but both are NOT allowed for one device.
+   
+   
    Format Definition:  The values are defined by the following notation:
+
+
 
       state            = "on" | "off"
                        ;
@@ -26,8 +31,7 @@ piSchedule.JSON.md
                        ;
                        ; 'switchDef' can occure morre than once.
 
-                       ; A 'state' OR 'state_and_time' is REQUIRED, but 
-                       ; both are NOT allowed for one device. 
+ 
 
       switchDef        = ( "on|off,absoluteTime" )
                        / ( "on|off,deltaTime[,vTime]")
