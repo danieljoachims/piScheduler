@@ -23,5 +23,9 @@ piScheduler
 
    __Calling__ `python ./piSchedule.py (piSchedule.json)`
 
-   __date/time parsing__
-     using `http://labix.org/python-dateutil`
+   __date/time settings__
+   To have a very flexible date/time handling piScheduler is using `http://labix.org/python-dateutil`. 
+   That utility allows piSchedule to support a very brod range of date/time formats. 
+   
+   Also switching based on sunrise/sunset is possible. 'ephem' is used for that, for details see
+    `http://rhodesmill.org/pyephem/`
