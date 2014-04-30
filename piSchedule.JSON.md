@@ -29,38 +29,42 @@ piSchedule.JSON.md
 
       state_and_time   = { "switch" : "switchDef" *[";switchDef"]}
                        ;
-                       ; 'switchDef' CAN occure more than once.
+                       ; 'switchDef' CAN occure more than once but MUST occure once.
 
  
 
       switchDef        = ( "on|off,absoluteTime" )
                        / ( "on|off,deltaTime[,vTime]")
+                       ; A switch point needs a state 'on' OR 'off'.
+                       ; Time value can be an 'absolute' date/time or a time delta definition 
 
       absoluteTime     = formats conform to 'dateutil'
 
       deltaTime        = '+|-|~h:min'
+                       ;  A Leading control character MUST occur
                        ;  leading plus  = add 'h:min' to vTime
                        ;  leading minus = substract 'h:min' from vTime
                        ;  leading ~     = adds a random 'h:min' to vTime
                        ;                  random value is calculated with 'h:min'
-                       ;  Leading character MUST occur
 
-      vTime            = OPTIONAL, if NOT defined vTime = actual date/time
+
+      vTime            = OPTIONAL, if NOT defined vTime is assumed the actual date/time
                        ; vTime without a date is parsed to actual day
 
-                       ; vTime CAN 'sunrise' OR 'sunset' but the 'Latitude' and
+                       ; vTime CAN be 'sunrise' OR 'sunset' but for that the 'Latitude' and
                        ; 'Longitude' HAS to be defined in 'pySchedule.prefs.json'
 
 
 
    __Date/Time__
    
-   A very flexible date/time handling is achieved with using [dateutil](http://labix.org/python-dateutil/). That utility allows piSchedule to support a very brod range of date/time formats. 
+   The very flexible date/time handling is achieved with using [dateutil](http://labix.org/python-dateutil/). That utility allows piSchedule to support a very brod range of date/time formats. 
    
    
    __Sunrise/Sunset__
    
-   Also switching based on sunrise/sunset is possible. 'ephem' is used for that, for details see [pyphem](http://rhodesmill.org/pyephem/)
+   Switching based on sunrise/sunset is possible. The geo coordinates has to be added to piSchedule.prefs.json.
+   'ephem' is used for that, for details see [pyphem](http://rhodesmill.org/pyephem/)
    
    
    __Example__
