@@ -23,8 +23,15 @@ piScheduler
 
    __Calling__ `python ./piSchedule.py (piSchedule.json)`
 
-   __Date/Time__
-   A very flexible date/time handling is achieved with using [dateutil](http://labix.org/python-dateutil/). 
-   That utility allows piSchedule to support a very brod range of date/time formats. 
+
+   ___Installation___
+  
+   **piSchedule** runs on the Raspberry and needs the following **python** utilities:
    
-   Also switching based on __sunrise/sunset__ is possible. See __piSchedule.JSON.md__ For details see also [pyphem](http://rhodesmill.org/pyephem/)
+   For a flexible **date/time** handling [dateutil](http://labix.org/python-dateutil/) is used. It includes a praser, so simple formatted date/time can be transformed to a full date/time object.
+   
+   The scheduling works with [Advanced Scheduler](https://pypi.python.org/pypi/APScheduler/2.1.2)
+   
+   **Sunrise/Sunset** switching is calculated with [ephem](https://pypi.python.org/pypi/ephem/3.7.5.1)
+
+   For installation details see also the [PyPI - the Python Package Index](https://pypi.python.org/pypi)
