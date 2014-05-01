@@ -3,7 +3,26 @@ piSchedule.JSON.md
 
 ###piSchedule definition of switch time values
 
-   Switching of devices with __piSchedule__ is defined with the general form
+   Switching of devices with __piSchedule__ offers the following features:
+
+
+   __Date/Time__
+   
+   The very flexible date/time handling is achieved with using [dateutil](http://labix.org/python-dateutil/). That utility allows piSchedule to support a very brod range of date/time formats. 
+   
+   __Time Delta__
+   
+   An absolute date/time value can be changed with a delta time, this can be added or substracted from the absolute time value. Also with an absolute time a random time can be added, that way on/off time points can be varied from day to day.
+   
+   
+   __Sunrise/Sunset__
+   
+   To follow sunrise/sunset with switch time values, those are calculated with just the keyword. Also those time values can be varied with add/substract or random add (see Time Delta). The geo coordinates has to be added to piSchedule.prefs.json.
+ 
+
+#### Schedule plan
+is defined in a JSON format and follows the following notation:
+
 
 ```
     "name of timer": {
@@ -17,9 +36,6 @@ piSchedule.JSON.md
 ```
    A 'state' OR 'state_and_time' is REQUIRED, but both are NOT allowed for one device.
    
-   
-   Format Definition:  The values are defined by the following notation:
-
 
 
       state            = "on" | "off"
@@ -55,17 +71,6 @@ piSchedule.JSON.md
                          'Longitude' HAS to be defined in 'pySchedule.prefs.json'
 
 
-
-   __Date/Time__
-   
-   The very flexible date/time handling is achieved with using [dateutil](http://labix.org/python-dateutil/). That utility allows piSchedule to support a very brod range of date/time formats. 
-   
-   
-   __Sunrise/Sunset__
-   
-   Switching based on sunrise/sunset is possible. The geo coordinates has to be added to piSchedule.prefs.json.
-   'ephem' is used for that, for details see [pyphem](http://rhodesmill.org/pyephem/)
-   
    
    __Example__
    
