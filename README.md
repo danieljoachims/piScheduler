@@ -1,7 +1,7 @@
 piScheduler
 ===========
 
-###piSchedule is an python extention for pilight
+###piSchedule is an python extension for pilight
 
    Installed on RaspberryPI together with [pilight](http://www.pilight.org/) it supports time scheduled
    switching of devices.
@@ -14,18 +14,25 @@ piScheduler
 __server__ and __port__ have to be stored in a file named __piSchedule.prefs.json__
 
 __message__ is build in consistence with the pilight-config definitions
-      and are stored in a JSON file and holds ```location```, ```devices``` and ```time with state on/off```
+      and holds ```location```, ```device``` and ```time with state on/off```
       
-The JSON file name can be passed to piSchedule as an argument or if
-   omitted the file is assumed to be stored in the same directory with 
-   the name but with extension '.json'. 
+__time with state on/off__ defines the switching of the related 'device' and can a direct action (on/off) 
+*OR* a string holding on/off state with the time when it has to be issued. Multiple actions for the same device can be written in one statement. Time can be relative or absolute with the possibility to have random offset or relation to *sunrise/sunset*. 
 
-__Calling__ `python ./piSchedule.py (piSchedule.json)`
+If date is obmitted from a time value it's assumed to be 'today'. Time value are checked for consistent, time values related to the pass are ignored.
+
+      
+All parameters for the _http_ call are stored in a JSON file, it's name can be passed to 'piSchedule.py' as an argument or if
+   omitted the file is assumed to be stored in the same directory with the name but with extension '.json'. 
+
+
+__Calling__ `python ./piSchedule.py [piSchedule.json]`
 
 
 ####   Installation
   
-**piSchedule** runs on the Raspberry and needs the following **python** utilities:
+**piSchedule** runs on the Raspberry. **pilight** has be installed and needs to berunning.\n
+piSchedule needs the following **python** utilities:
    
 - For a flexible **date/time** handling [dateutil](http://labix.org/python-dateutil/) is used. It includes a praser, so simple formatted date/time can be transformed to a full date/time object.
    
