@@ -35,7 +35,7 @@
     "location": {
       "ebene1": {
         "lampe2": {
-          "switch": "on,+01:02,sRise;off,-01:30,sSet;on,~:10,18:00;off,~:15,21:05"
+          "switch": "on,+01:02,sunrise;off,-01:30,sunset;on,~:10,18:00;off,~:15,21:05"
         }
       }
     }
