@@ -11,7 +11,7 @@ piScheduler
          http:// + server + ':' + port + message
 ```
 ####   Parameters 
-__server__ and __port__ have to be stored in a file named __piSchedule.prefs.json__
+__server__ and __port__ have to be stored in a file named *piSchedule.prefs.json*
 
 __message__ is build in consistence with the pilight-config definitions
       and holds ```location```, ```device``` and ```time with state on/off```
@@ -19,14 +19,17 @@ __message__ is build in consistence with the pilight-config definitions
 __time with state on/off__ defines the switching of the related 'device' and can a direct action (on/off) 
 *OR* a string holding on/off state with the time when it has to be issued. Multiple actions for the same device can be written in one statement. Time can be relative or absolute with the possibility to have random offset or relation to *sunrise/sunset*. 
 
-If date is obmitted from a time value it's assumed to be 'today'. Time value are checked for consistent, time values related to the pass are ignored.
+If date is obmitted from a time value it's assumed to be 'today'. Time values are checked for consistent; time values related to the pass of piSchedule.py execution are ignored.
 
-      
-All parameters for the _http_ call are stored in a JSON file, it's name can be passed to 'piSchedule.py' as an argument or if
-   omitted the file is assumed to be stored in the same directory with the name but with extension '.json'. 
+All preference parameters for the _http_ call are stored in a JSON file, it's name can be passed to 'piSchedule.py' as an argument or if omitted the file is assumed to be stored in the same directory with the same name but with extension '.json'. 
 
 
 __Calling__ `python ./piSchedule.py [piSchedule.json]`
+
+
+__Examples__
+- [piSchedule.json](https://github.com/neandr/piScheduler/blob/master/piSchedule.json)
+- [piSchedule.prefs.json](https://github.com/neandr/piScheduler/blob/master/piSchedule.prefs.json)
 
 
 ####   Installation
