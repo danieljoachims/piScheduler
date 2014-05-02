@@ -1,0 +1,43 @@
+{
+  "timer1": {
+    "location": {
+      "ebene1": {
+        "lampe2": "off"
+      }
+    }
+  },
+  "timer2": {
+    "location": {
+      "ebene1": {
+        "lampe2": {
+          "switch": "on,22:50;off,+:10"
+        }
+      }
+    }
+  },
+  "timer3": {
+    "location": {
+      "ebene1": {
+        "lampe2": "on"
+      }
+    }
+  },
+  "timer4": {
+    "location": {
+      "ebene1": {
+        "lampe2": {
+          "switch": "on,+:02;off,+:03:00"
+        }
+      }
+    }
+  },
+  "timer5": {
+    "location": {
+      "ebene1": {
+        "lampe2": {
+          "switch": "on,+01:02,sRise;off,-01:30,sSet;on,~:10,18:00;off,~:15,21:05"
+        }
+      }
+    }
+  }
+}
