@@ -1,7 +1,7 @@
 piScheduler
 ===========
 
-###piSchedule is an python extension for pilight
+### piSchedule is an python extension for pilight
 
    Installed on RaspberryPI together with [pilight](http://www.pilight.org/) it supports time scheduled
    switching of devices.
@@ -10,7 +10,7 @@ piScheduler
 ```
          http:// + server + ':' + port + message
 ```
-####   Parameters 
+### Parameters 
 __server__ and __port__ have to be stored in a file named *piSchedule.prefs.json*. That prefs file also hold the geo coordinates to be used for calculating _sunrise/sunset_.
 
 __message__ is build in consistence with the pilight-config definitions
@@ -24,15 +24,17 @@ If date is obmitted from a time value it's assumed to be 'today'. Time values ar
 All time switching parameters are stored in a JSON file, it's name can be passed to 'piSchedule.py' as an argument or if omitted the file is assumed to be stored in the same directory with the same name but with extension '.json'. 
 
 
-__Calling__ `python ./piSchedule.py [piSchedule.json]`
+### Calling
+`python ./piSchedule.py [piSchedule.json]`
 
 
-__Examples of the JSON files__
+### Examples of the JSON files
+
 - [piSchedule.json](https://github.com/neandr/piScheduler/blob/master/piSchedule.json)
 - [piSchedule.prefs.json](https://github.com/neandr/piScheduler/blob/master/piSchedule.prefs.json)
 
 
-####   Installation
+### Installation
   
 **piSchedule** runs on the Raspberry. **pilight** has be installed and needs to be running.
 
@@ -46,7 +48,7 @@ piSchedule uses the following **python** packages:
 
 
 
-#####A brief installation overview of the required python packages
+#### A brief installation overview of the required python packages
 Installing python [pip](http://www.pip-installer.org/en/latest/installing.html)
 ```
 - download $ get-pip.py to a working directory
