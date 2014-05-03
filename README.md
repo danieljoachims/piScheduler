@@ -34,11 +34,11 @@ __Examples of the JSON files__
 
 ####   Installation
   
-**piSchedule** runs on the Raspberry. **pilight** has be installed and needs to berunning.
+**piSchedule** runs on the Raspberry. **pilight** has be installed and needs to be running.
 
-piSchedule needs the following **python** utilities:
+piSchedule uses the following **python** packages:
    
-- For a flexible **date/time** handling [dateutil](http://labix.org/python-dateutil/) is used. It includes a praser, so simple formatted date/time can be transformed to a full date/time object.
+- For a flexible **date/time** handling [dateutil](http://labix.org/python-dateutil/). It includes a praser, so simple formatted date/time will be transformed to a full date/time object.
    
 - The scheduling works with [Advanced Scheduler](https://pypi.python.org/pypi/APScheduler/2.1.2)
    
