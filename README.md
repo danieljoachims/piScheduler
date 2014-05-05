@@ -8,29 +8,32 @@ piScheduler
    
    Switching uses pilight calls
 ```
-         http:// + server + ':' + port + message
+    http:// + server + ':' + port + message
 ```
 ### Parameters 
 __server__ and __port__ have to be stored in a file named *piSchedule.prefs.json*. That prefs file also hold the geo coordinates to be used for calculating _sunrise/sunset_.
 
 __message__ is build in consistence with the pilight-config definitions
-      and holds ```location```, ```device``` and ```time with state on/off```
-      
-__time with state on/off__ defines the switching of the related 'device' and can a direct action (on/off) 
-*OR* a string holding on/off state with the time when it has to be issued. Multiple actions for the same device can be written in one statement. Time can be relative or absolute with the possibility to have random offset or relation to *sunrise/sunset*. 
+and holds `location`, `device` and `time with state on/off`
+
+__time with state on/off__ defines the switching of the related 'device' and can a direct action (on/off) *OR* a string holding on/off state with the time when it has to be issued. Multiple actions for the same device can be written in one statement. Time can be relative or absolute with the possibility to have random offset or relation to *sunrise/sunset*. 
 
 If date is obmitted from a time value it's assumed to be 'today'. Time values are checked for consistent; time values related to the pass of piSchedule.py execution are ignored.
 
-All time switching parameters are stored in a JSON file, it's name can be passed to 'piSchedule.py' as an argument or if omitted the file is assumed to be stored in the same directory with the same name but with extension '.json'. 
+All time switching parameters are stored in a JSON or INI file, it's name can be passed to 'piSchedule.py' as an argument or if omitted the file is assumed to be stored in the same directory with the same name but with extension '.json'. 
+
+See
+`piSchedule.setup.MD'`  for details about `'piSchedule.json'/'piSchedule.ini'`
 
 
 ### Calling
-`python ./piSchedule.py [piSchedule.json]`
+`python ./piSchedule.py [piSchedule.json|piScedule.ini]`
 
 
-### Examples of the JSON files
+### Examples of the .JSON and .INI files
 
 - [piSchedule.json](https://github.com/neandr/piScheduler/blob/master/piSchedule.json)
+- [piSchedule.ini](https://github.com/neandr/piScheduler/blob/master/piSchedule.ini)
 - [piSchedule.prefs.json](https://github.com/neandr/piScheduler/blob/master/piSchedule.prefs.json)
 
 
