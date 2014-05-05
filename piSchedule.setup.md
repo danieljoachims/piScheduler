@@ -1,7 +1,7 @@
-piSchedule.JSON.md
+piSchedule.setup.md
 ===========
 
-###piSchedule definition of switch time values
+###piSchedule setup of switch time values
 
    Switching of devices with __piSchedule__ offers the following features:
 
@@ -12,7 +12,7 @@ piSchedule.JSON.md
    
    __Time Delta__
    
-   An absolute date/time value can be changed with a delta time, this can be added or substracted from the absolute time value. Also with an absolute time a random time can be added, that way on/off time points can be varied from day to day.
+   An absolute date/time value can be changed with a delta time, this can be added or subtracted from the absolute time value. Also with an absolute time a random time can be added, that way on/off time points can be varied from day to day.
    
    
    __Sunrise/Sunset__
@@ -21,46 +21,64 @@ piSchedule.JSON.md
  
 
 #### Schedule plan
-is defined in a JSON format and follows the following notation:
 
+To configure which device at what time should be switched on/off is defined in a file which is passed to piScheduler.py.
 
+That setup file has to a be a JSON or an easy text (INI) format and follows this notation:
+
+**JSON**
 ```
     "name of timer": {
        "location": {
           "location_name": {
-             "device": [state | state_and_time]
+             "device_name": [state | state_and_time]
           }
        }
     }
 
 ```
-   A 'state' OR 'state_and_time' is REQUIRED, but both are NOT allowed for one device.
-   
+**Text INI**
+```
+   location_name; device_name; [state | state_and_time]
+   * comment line starting with asterisk - can have leading space(s)
+       empty line allowed, will be ignored
+```
+_*Note*_   
+*JSON definitions are not always parsed in the sequence of the occurrence in the file. That can be a problem with switch definitions only holding on/off. This problem doesn't exists with the INI format.*
+
+
+**Definitions**
+
+A 'state' OR 'state_and_time' is REQUIRED, but both are NOT allowed for one device.
 
 
       state            = "on" | "off"
                        
-                         This is direct switching method and will be exceuted 
+                         This is direct switching method and will be executed  
                          as 'piSchedule' is called.
 
+      For JSON
       state_and_time   = { "switch" : "switchDef" *[";switchDef"]}
-                       
-                         'switchDef' MUST occure once and CAN occure more than once.
 
- 
+      For INI   
+      state_and_time   = "switchDef" *[";switchDef"]
+
+                         'switchDef' MUST occur once and CAN occur more than once.
+      
 
       switchDef        = ( "on|off,absoluteTime" )
                        / ( "on|off,deltaTime[,vTime]")
                          A switch point needs a state 'on' OR 'off'.
                          Time value can be an 'absolute' date/time or a time delta definition 
+                         'off' definition without vTime follows the previous 'on' time
 
       absoluteTime     = formats conform to 'dateutil'
 
       deltaTime        = '+|-|~h:min'
-                          A Leading control character MUST occur once
+                          A leading control character MUST occur once
                             leading plus  = add 'h:min' to vTime
-                            leading minus = substract 'h:min' from vTime
-                            leading ~     = adds a random 'h:min' to vTime
+                            leading minus = subtract 'h:min' from vTime
+                            leading ~     = add a random 'h:min' to vTime
                                             random value is calculated with 'h:min'
 
 
@@ -74,4 +92,4 @@ is defined in a JSON format and follows the following notation:
    
    __Example__
    
-   See **piSchedule.json**
+   See **piSchedule.json** and **piSchedule.ini**
