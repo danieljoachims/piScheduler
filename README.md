@@ -34,6 +34,13 @@ See
 
 It's recommended to run 'piSchedule.py' with tmux. That way the current status of the daily switch plan can be recalled. Helpful in a RPI configuration without keyboard/terminal using a SSH connection.
 
+### piClient
+'piClient' is used together with 'piSchedule'. When 'piSchedule' has been started 'piClient' can pass commands or the name of a daySchedule file to 'piSchedule'. That way additional switching instruction can be added and the current daySchedule will be replaced by the new one with the next day change.
+
+  `./piClient.py [argument]`
+
+See 'piSchedule.MD'  more details and descriptions
+
 ### Examples of the .JSON and .INI files
 
 - [piSchedule.json](https://github.com/neandr/piScheduler/blob/master/piSchedule.json)
