@@ -6,7 +6,7 @@
       Installed on RaspberryPI together with pilight it supports time scheduled
       switching of devices 
       'piClient.py' passes commands or the name of a file which contains
-      commands to be processed by 'piSChdule'.
+      commands to be processed by 'piSchedule'.
 
     'Calling'  ./piClient.py [argument]
 
