@@ -24,7 +24,10 @@ piSchedule.setup.md
 
 To configure which device at what time should be switched on/off is defined in a file which is passed to piScheduler.py.
 
-That setup file has to a be a JSON or an easy text (INI) format and follows this notation:
+That setup file has to a be a JSON or an easy text (INI) format. See below **Definitions** about the syntax.
+
+**Day Schedule**
+The schedule is always for one day. With date change the schedule which was passed with a .JSON or .INI file will be reloaded. That way the sunrise/sunset parameters as well as all random time values are recalculated.
 
 **JSON**
 ```
@@ -47,9 +50,9 @@ _*Note*_
 *JSON definitions are not always parsed in the sequence of the occurrence in the file. That can be a problem with switch definitions only holding on/off. This problem doesn't exists with the INI format.*
 
 
-**Definitions**
+### Definitions
 
-A 'state' OR 'state_and_time' is REQUIRED, but both are NOT allowed for one device.
+A **'state'** OR **'state_and_time'** is REQUIRED, but both are NOT allowed for one device.
 
 
       state            = "on" | "off"
@@ -64,22 +67,25 @@ A 'state' OR 'state_and_time' is REQUIRED, but both are NOT allowed for one devi
       state_and_time   = "switchDef" *[";switchDef"]
 
                          'switchDef' MUST occur once and CAN occur more than once.
-      
 
       switchDef        = ( "on|off,absoluteTime" )
-                       / ( "on|off,deltaTime[,vTime]")
+                        / ( "on|off,[deltaTime][,vTime]")
                          A switch point needs a state 'on' OR 'off'.
                          Time value can be an 'absolute' date/time or a time delta definition 
-                         'off' definition without vTime follows the previous 'on' time
+                         'off' definition without vTime follows the previous 'on' time.
+                         'deltaTime' and 'vTime' can be given in any order
+
 
       absoluteTime     = formats conform to 'dateutil'
 
-      deltaTime        = '+|-|~h:min'
+      deltaTime        = '+|-|~|~-h:min'
                           A leading control character MUST occur once
                             leading plus  = add 'h:min' to vTime
                             leading minus = subtract 'h:min' from vTime
                             leading ~     = add a random 'h:min' to vTime
                                             random value is calculated with 'h:min'
+                            leading ~-    = subtracts a random time
+                           Leading character MUST occur
 
 
       vTime            = OPTIONAL, if NOT defined vTime is assumed the actual date/time
@@ -92,4 +98,5 @@ A 'state' OR 'state_and_time' is REQUIRED, but both are NOT allowed for one devi
    
    __Example__
    
-   See **piSchedule.json** and **piSchedule.ini**
+   See **[piSchedule.json](https://github.com/neandr/piScheduler/blob/master/piSchedule.json)** 
+   **[piSchedule.ini](https://github.com/neandr/piScheduler/blob/master/piSchedule.ini)** 
