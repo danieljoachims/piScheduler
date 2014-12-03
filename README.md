@@ -8,7 +8,7 @@ piSchedule
 
 *piSchedule* runs on a terminal session and generates output with overview of the upcoming day schedule and writes also status details.   
 
-A more convient use is to display and operate that output on a PC or also on mobile devices using a browser like Firefox. (See below __piSchedule with Browser__)
+A more convient use is to display and operate that output on a PC or also on mobile devices using a browser like Firefox. (See below __piSchedule with [Browser](#web)__)
    
 
 ### How it works
@@ -61,7 +61,7 @@ Starts with:
 It's recommended to run 'piSchedule.py' with **tmux**. Helpful in a RPI configuration without keyboard/terminal using a SSH connection.
 
 ---------------
-## *piSchedule* with Browser (PC and Smartphone)
+##<a name="web"></a> *piSchedule* with Browser (PC and Smartphone)
 
 After starting *piSchedule* on the console, a browser page can be used to monitor the *piSchedule* operation.   
 The current implementation allows to   
@@ -80,7 +80,8 @@ __*Note*__ *More functions on the web page to come ..*
 ```
     ./piConsole.py [argument]
 ```
-See 'piSchedule.MD'  more details and descriptions
+__'argument'__ follows the definition for 'piSchedule.ini' or 'piSchedule.json' files
+
 
 ---------------------
 
