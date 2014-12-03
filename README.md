@@ -6,7 +6,7 @@ piSchedule
    Installed on RaspberryPI together with [pilight](http://www.pilight.org/) it supports time scheduled
    switching of devices.   
 
-*piSchedule* runs on a terminal session runs and generates output with overview of the upcoming day schedule and writes also status details.   
+*piSchedule* runs on a terminal session and generates output with overview of the upcoming day schedule and writes also status details.   
 
 A more convient use is to display and operate that output on a PC or also on mobile devices using a browser like Firefox. (See below __piSchedule with Browser__)
    
@@ -34,15 +34,15 @@ The daily switch plan (JSON/INI file) will be reloaded with day change including
 
  ---------
 ###piSchedule Setup before Starting  
- Before starting 'piSchedule' two parameters has to be configured: *Location* and *LogID*.   
- 'Location' is used to calculate the geolocation parameters for the daily recalculation of *sunrise/sunset*.  
-'LogID' protects piSchedule and has to be used similar to a password at start up on the *webGui*.  
+ Before starting *piSchedule* two parameters has to be configured: *Location* and *LogID*.   
+_**Location**_ is used to calculate the geolocation parameters for the daily recalculation of *sunrise/sunset*.  
+_**LogID**_ protects *piSchedule* and has to be used similar to a password at start up on the *web pages*.  
 The setup is supported with a python program   
 ```
      piSetup.py Location='yourTown' LogID='yourIDcode'
 ```
  __Note__   
-*The setup parameters are stored to a file *`piSchedule.prefs.json`, *the 'LogID' is hashed and only the hash is stored.  *
+*The setup parameters are stored to a file* `piSchedule.prefs.json`. *The 'LogID' is hashed and only the hash is stored.*   
 *To check your 'LogID' against the stored hash, use*
 ``` 
      piSetup.py hash='yourIDcode'
