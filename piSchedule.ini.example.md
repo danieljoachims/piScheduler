@@ -7,16 +7,16 @@ The *piSchedule* control commands follow the notation described on the [pilight 
 
 >    The first step is to define the pilight devices.
 
-"devices": {
-      "Television": {
-          "protocol": [ "relay" ],
-          "id": [{
+      "devices": {
+            "Television": {
+                "protocol": [ "relay" ],
+                  "id": [{
                   "gpio": 3
-          }],
-          "state": "off",
-          "default": "off"
-      }
-  },
+                }],
+                "state": "off",
+                "default": "off"
+            }
+      },
 
 >    The first JSON key 'Television' is the id used by pilight to identify a specific device, the value of the name (in this case Television with a capital T) setting is the name communicated by pilight.
 
