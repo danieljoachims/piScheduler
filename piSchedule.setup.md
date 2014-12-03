@@ -31,18 +31,16 @@ The schedule is always for one day. With date change the schedule which was pass
 
 **JSON**
 ```
-    "name of timer": {
-       "location": {
-          "location_name": {
-             "device_name": [state | state_and_time]
-          }
-       }
-    }
-
+{
+  "'timer_name'": {
+    "device": "'device_name'",   
+    "switch": "[state | state_and_time]"
+   }
+}
 ```
 **Text INI**
 ```
-   location_name; device_name; [state | state_and_time]
+   device_name; [state | state_and_time]
    * comment line starting with asterisk - can have leading space(s)
        empty line allowed, will be ignored
 ```
@@ -61,15 +59,15 @@ A **'state'** OR **'state_and_time'** is REQUIRED, but both are NOT allowed for 
                          as 'piSchedule' is called.
 
       For JSON
-      state_and_time   = { "switch" : "switchDef" *[";switchDef"]}
+      state_and_time   = "switchDef" *[";switchDef"]
 
       For INI   
-      state_and_time   = "switchDef" *[";switchDef"]
+      state_and_time   = switchDef *[;switchDef]
 
                          'switchDef' MUST occur once and CAN occur more than once.
 
-      switchDef        = ( "on|off,absoluteTime" )
-                        / ( "on|off,[deltaTime][,vTime]")
+      switchDef        = ( on|off,absoluteTime )
+                        / ( on|off,[deltaTime][,vTime])
                          A switch point needs a state 'on' OR 'off'.
                          Time value can be an 'absolute' date/time or a time delta definition 
                          'off' definition without vTime follows the previous 'on' time.
@@ -92,7 +90,7 @@ A **'state'** OR **'state_and_time'** is REQUIRED, but both are NOT allowed for 
                          vTime without a date is parsed to actual day
 
                          vTime CAN be 'sunrise' OR 'sunset' but for that the 'Latitude' and
-                         'Longitude' HAS to be defined in 'pySchedule.prefs.json'
+                         'Longitude' HAS to be defined in 'piSchedule.prefs.json'
 
 
    
