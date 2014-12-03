@@ -64,16 +64,26 @@ It's recommended to run 'piSchedule.py' with **tmux**. Helpful in a RPI configur
 ##<a name="web"></a> *piSchedule* with Browser (PC and Smartphone)
 
 After starting *piSchedule* on the console, a browser page can be used to monitor the *piSchedule* operation.   
-The current implementation allows to   
+The current implementation allows to show  
 
- *   login with 'LogID'   
+ *   __Open the web pages with 'LogID'__   
+ ![pic1][pic1]   
+[pic1]:https://dl.dropboxusercontent.com/u/35444930/piScheduler/home.png   
 
+*   __Main Menu to select different functions__    
 ![pic2][pic2]
-[pic2]: https://dl.dropboxusercontent.com/u/35444930/piScheduler/home.png    
- *   list 'Day Schedule and Prefs' (Location, Sunrise/Sunset, Geocoordinates)   
- *   list the daily jobs fired
+[pic2]:https://dl.dropboxusercontent.com/u/35444930/piScheduler/mainMenu.png   
+
+ *   __List 'Day Schedule and Prefs' (Location, Sunrise/Sunset, Geocoordinates)__   
+ ![pic3][pic3]
+[pic3]:https://dl.dropboxusercontent.com/u/35444930/piScheduler/prefs%26jobs%28w%29.png
+
+ *   __List the daily jobs excecuted already__    
+![pic4][pic4]
+[pic4]:https://dl.dropboxusercontent.com/u/35444930/piScheduler/dayList.png   
 
 __*Note*__ *More functions on the web page to come ..*
+
 
 ---------------------
 
@@ -145,4 +155,8 @@ That libs are referenced on the web page definition and loaded on request
 
 ```
 
-For installation details see also the [PyPI - the Python Package Index](https://pypi.python.org/pypi)
+For installation details see also the [PyPI - the Python Package Index](https://pypi.python.org/pypi)   
+
+
+------------------
+<p align='center'>Using <http://markable.in/editor/></p>
