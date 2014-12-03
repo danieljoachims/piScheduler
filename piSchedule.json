@@ -1,44 +1,10 @@
 {
-  "timer1": {
-    "location": {
-      "ebene1": {
-        "lampe2": "off"
-      }
-    }
+  "job1": {
+    "device": "lampe2",
+    "switch": "on,+:02;off,+:03:00"
   },
-  "timer2": {
-    "location": {
-      "ebene1": {
-        "lampe2": {
-          "switch": "on,00:23;off,+:10"
-        }
-      }
-    }
-  },
-  "timer3": {
-    "location": {
-      "ebene1": {
-        "lampe2": "on"
-      }
-    }
-  },
-  "timer4": {
-    "location": {
-      "ebene1": {
-        "lampe2": {
-          "switch": "on,+:02;off,+:03:00"
-        }
-      }
-    }
-  },
-  "timer5": {
-    "location": {
-      "ebene1": {
-        "lampe2": {
-          "switch": "on,-00:20,sunrise;off,+00:30,sunset;on,~:30,18:00;off,~:10,21:05"
-        }
-      }
-    }
+  "job2": {
+    "device": "lampe2",
+    "switch": "off,23:30"
   }
 }
-
