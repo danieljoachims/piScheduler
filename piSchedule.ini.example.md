@@ -121,7 +121,5 @@ First passes just one schedule instruction to *piSchedule*; the second passes a 
 With passing a file name that file is remembered by *piSchedule*. With day change the schedule of that file is updated for the new day and sunrise/sunset and all random settings are recalculated.
 
 
-
-Using http://markable.in/editor/
-
-
+--------------------
+<p align='center'><small>Using http://markable.in/editor/</small></p>
