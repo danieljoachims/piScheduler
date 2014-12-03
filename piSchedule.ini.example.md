@@ -1,4 +1,4 @@
-*piSchedule* -- Examples for Scheduling
+*piSchedule* -- Scheduling Examples
 ------------------------------------
 
 The *piSchedule* control commands follow the notation described on the [pilight documentation](http://www.pilight.org/getting-started/configuring/):
@@ -71,22 +71,23 @@ As a Python program it can be started on a terminal running on client(PC). It's 
 
 __Terminal Output__
 
-    python piSchedule.py
+    python piSchedule.py piSchedule.ini
 
 would write an output to the terminal like this:
-![pic1][pic1]
-[pic1]: https://dl.dropboxusercontent.com/u/35444930/piScheduler/piSchedule_1.png
+
+![pic3][pic3]
+[pic3]:https://dl.dropboxusercontent.com/u/35444930/piScheduler/prefs%26jobs%28c%29.png    
 
 _Description_
 
-Line 1: Header with actual date/time, following the next day the INI file is read again
+Line 1: Header with actual date/time, following the next day the INI file is read again and the server:port
 
 Line 2 .. 4: GeoLocation data with sunrise and sunset values for the day
 
 Line 5: Header for the list of currently scheduled jobs. 
-The list was generated with definitions in 'piSchedule.ini'
+The list was generated with definitions in [piSchedule.ini] and the excecuted switches are stored to [Thursday.log]
 
-Line 6: Showing a switch definition: the date/time in parentheses shows the switch time for  'Aussen/Haustuer', it was calculated from 'sunset' minus 1h and 2 minutes
+Line 6: Showing a switch definition: the date/time in parentheses shows the switch time for  'Stehlampe', it was calculated from 'sunset' plus 10 minutes out of a random span of 30 minutes.
     
 An example with **two scheduled events**:
 ![pic2][pic2]
@@ -97,11 +98,15 @@ _Description_
 Line 6 and 7 show two remaining definitions, both scheduled with switch time 23:45 and both random variation of 15 minutes. As can be seen the resulting time values differ with 23:46 and 23:51
 
 The two schedules have been set from the following lines in 'piSchedule.ini':
-
+```
     Stehlampe; on,22:35;off,~:15,23:45
     Kueche; on,19:15;off,~:15,23:45
+```
+    
 
-Because the terminal snapshot was taken at 23:21 (see header line), the both 'on' schedules have been issued already and are removed from the list.
+__Day Log File__  
+All processed switcedh events are written to a log file which is named with the actual day, like [Thursday.log] (see header of example above).     
+The example shows a terminal snapshot taken at 23:21, the both 'on' schedules have been issued already and are removed from the list. Those removed schedule lines are written to the named log file.
 
 ###piConsole.py
 With *piSchedule* running, the second helpful program is *piConsole*. It's purpose is to pass commands, schedule instructions or a piSchedule.ini or .json file to 'piSchedule.py', example:
