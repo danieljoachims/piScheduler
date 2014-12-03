@@ -66,9 +66,10 @@ It's recommended to run 'piSchedule.py' with **tmux**. Helpful in a RPI configur
 After starting *piSchedule* on the console, a browser page can be used to monitor the *piSchedule* operation.   
 The current implementation allows to   
 
- *   login with 'LogID'
+ *   login with 'LogID'   
+
 ![pic2][pic2]
-[pic2]: https://dl.dropboxusercontent.com/u/35444930/piScheduler/home.png
+[pic2]: https://dl.dropboxusercontent.com/u/35444930/piScheduler/home.png    
  *   list 'Day Schedule and Prefs' (Location, Sunrise/Sunset, Geocoordinates)   
  *   list the daily jobs fired
 
