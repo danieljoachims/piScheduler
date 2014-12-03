@@ -52,16 +52,18 @@ The setup is supported with a python program
 
 -------------
 ## Starting *piSchedule*
-'piSchedule.py' has to be run on the RaspberryPI and will output the current 'daySchedule' as well as other logging details. Starts with:   
+*piSchedule.py* has to be run on the RaspberryPI and will output to the console the current 'daySchedule' as well as other logging details.   
+
+Starts with:   
 ``` 
     python piSchedule.py [piSchedule.json|piScedule.ini]`
 ``` 
-It's recommended to run 'piSchedule.py' with tmux. Helpful in a RPI configuration without keyboard/terminal using a SSH connection.
+It's recommended to run 'piSchedule.py' with **tmux**. Helpful in a RPI configuration without keyboard/terminal using a SSH connection.
 
 ---------------
 ## *piSchedule* with Browser (PC and Smartphone)
 
-After starting *piSchedule* on the console, a browser page can be used to monitor the piScheduler operation.   
+After starting *piSchedule* on the console, a browser page can be used to monitor the *piSchedule* operation.   
 The current implementation allows to   
 
  *   login with 'LogID'
