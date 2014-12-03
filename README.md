@@ -67,6 +67,8 @@ After starting *piSchedule* on the console, a browser page can be used to monito
 The current implementation allows to   
 
  *   login with 'LogID'
+![pic2][pic2]
+[pic2]: https://dl.dropboxusercontent.com/u/35444930/piScheduler/home.png
  *   list 'Day Schedule and Prefs' (Location, Sunrise/Sunset, Geocoordinates)   
  *   list the daily jobs fired
 
