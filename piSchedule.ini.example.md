@@ -122,4 +122,4 @@ With passing a file name that file is remembered by *piSchedule*. With day chang
 
 
 --------------------
-<p align='center'><small>Using http://markable.in/editor/</small></p>
+<p align='center'>Using http://markable.in/editor/</p>
