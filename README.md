@@ -33,15 +33,17 @@ The daily switch plan (JSON/INI file) will be reloaded with day change including
 *See* `piSchedule.setup.MD'`  *for details about* `'piSchedule.json'/'piSchedule.ini'`
 
  ---------
-###piSchedule Setup before Starting  
- Before starting *piSchedule* two parameters has to be configured: *Location* and *LogID*.   
+##*Setup - piSchedule* before Starting  
+ Before starting *piSchedule* two parameters has to be configured:     
+
 _**Location**_ is used to calculate the geolocation parameters for the daily recalculation of *sunrise/sunset*.  
+
 _**LogID**_ protects *piSchedule* and has to be used similar to a password at start up on the *web pages*.  
 The setup is supported with a python program   
 ```
      piSetup.py Location='yourTown' LogID='yourIDcode'
 ```
- __Note__   
+ __*Note*__   
 *The setup parameters are stored to a file* `piSchedule.prefs.json`. *The 'LogID' is hashed and only the hash is stored.*   
 *To check your 'LogID' against the stored hash, use*
 ``` 
@@ -64,7 +66,7 @@ It's recommended to run 'piSchedule.py' with **tmux**. Helpful in a RPI configur
 ##<a name="web"></a> *piSchedule* with Browser (PC and Smartphone)
 
 After starting *piSchedule* on the console, a browser page can be used to monitor the *piSchedule* operation.   
-The current implementation allows to show  
+The current implementation has
 
  *   __Open the web pages with 'LogID'__   
  ![pic1][pic1]   
