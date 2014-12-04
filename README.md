@@ -161,4 +161,4 @@ For installation details see also the [PyPI - the Python Package Index](https://
 
 
 ------------------
-<p align='center'>Using <http://markable.in/editor/></p>
+<p align='center'>Using http://markable.in/editor/</p>
