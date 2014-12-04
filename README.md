@@ -1,7 +1,7 @@
-piSchedule
+*piSchedule*
 ==========
 
-### *piSchedule* is an python extension for pilight
+### *piSchedule* is a python extension for pilight
 
    Installed on RaspberryPI together with [pilight](http://www.pilight.org/) it supports time scheduled
    switching of devices.   
