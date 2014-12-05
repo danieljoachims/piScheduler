@@ -3,6 +3,9 @@
 
 ### *piSchedule* is a python extension for pilight
 
+
+![]:https://www.dropbox.com/s/qsriy5j39uae50m/piScheduler.md?dl=0
+
    Installed on RaspberryPI together with [pilight](http://www.pilight.org/) it supports time scheduled
    switching of devices.   
 
