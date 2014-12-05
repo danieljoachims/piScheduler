@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-us">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="google-site-verification" content="D8oICQ4W7TGsPrPwYr56WgM8Nn-RRN-_wlqvK9xtkEM" />
+      <title>read0.md - Markable.in</title>
+      <meta name="keywords" content="markdown editor" />
+      <meta name="description" content="A remarkable online markdown editor." />
+      <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+      <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+      <link rel="shortcut icon" href="http://markable.in/site_media/static/img/favicon.ico" />
+      <link REL="SHORTCUT ICON" HREF="http://markable.in/site_media/static/images/favicon.ico">
+      <link rel="stylesheet" href="http://markable.in/site_media/static/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="http://markable.in/site_media/static/css/style.css">
+      <link rel="stylesheet" href="http://markable.in/site_media/static/css/code.css">
+      <link rel="stylesheet" href="http://markable.in/site_media/static/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" />
+      <link rel="stylesheet" href="http://markable.in/site_media/static/jquery-message/jquery.message.css">
+      <script src="http://markable.in/site_media/static/js/jquery-1.7.1.min.1.js"></script>
+      <script src="http://markable.in/site_media/static/js/utils.js"></script>
+      <script src="http://markable.in/site_media/static/bootstrap/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="http://markable.in/site_media/static/jquery-message/jquery.message.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="http://markable.in/site_media/static/editor/css/view_file.css">
+      <link rel="stylesheet" type="text/css" href="http://markable.in/site_media/static/css/code.css">
+      <link type="text/css" rel="stylesheet" href="http://markable.in/site_media/static/comments/css/comments.css" />
+      <script>
+         ( function(d, s, id) {
+               var js, fjs = d.getElementsByTagName(s)[0];
+               if (d.getElementById(id))
+                  return;
+               js = d.createElement(s);
+               js.id = id;
+               js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=436632973028793";
+               fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+      </script>
+
+   </head>
+   <body id="">
+
+      <div class="container container-site">
+
+         <div style="height: 40px;"></div>
+
+         <div style="margin: 10px 20px 20px 20px; min-height: 300px;">
+            <div id="message_div">
+
+            </div>
+
+            <div id="content">
+               <h1 id="pischedule">piSchedule</h1>
+               <h3 id="pischedule-is-an-python-extension-for-pilight"><em>piSchedule</em> is an python extension for pilight</h3>
+               <p>
+                  Installed on RaspberryPI together with <a href="http://www.pilight.org/">pilight</a> it supports time scheduled
+                  switching of devices.
+                  <br />
+               </p>
+               <p>
+                  <em>piSchedule</em> runs on a terminal session and generates output with overview of the upcoming day schedule and writes also status details.
+                  <br />
+               </p>
+               <p>
+                  A more convient use is to display and operate that output on a PC or also on mobile devices using a browser like Firefox. (See below <strong><a href="#web"><em>piSchedule</em> with Browser</a></strong>)
+               </p>
+               <h3 id="how-it-works">How it works</h3>
+               <p>
+                  <em>piSchedule</em> switches the devices using <strong>pilight</strong> calls
+               </p>
+               <div class="codehilite">
+                  <pre>    <span class="n">http</span><span class="p">:</span><span class="o">//</span> <span class="o">+</span> <span class="n">server</span> <span class="o">+</span> <span class="s">&#39;:&#39;</span> <span class="o">+</span> <span class="n">port</span> <span class="o">+</span> <span class="n">message</span>
+</pre>
+</div>
+               <p>
+                  <strong>server</strong> and <strong>port</strong> are read from the pilight configuration file <code>
+                     config.json</code>
+                  . <em>piSchedule</em> uses the pilight port and the two next ports also.
+               </p>
+               <p>
+                  <strong>message</strong> is build in consistence with the pilight configuration and holds <code>
+                     device</code>
+                  and <code>
+                     switch</code>
+                  with state <code>
+                     on/off</code>
+                  with <code>
+                     time</code>
+                  values.
+               </p>
+               <p>
+                  <strong>switch</strong> defines the switching of the related 'device' and can be a direct action (on/off) <em>OR</em> a string holding on/off state with the time when it has to be issued. Multiple actions for the same device can be written with one statement. Time can be relative or absolute with the possibility to have <em>random offset</em><u>OR/AND</u> relation to <em>sunrise/sunset</em>.
+               </p>
+               <p>
+                  Normally the date is obmitted, so it's assumed to be a 'today' event. Time values are checked for consistent; time values related to the past of the program execution are ignored, but flagged on the <em>piSchedule</em> console output and written to a log file. That log file is named Monday.log .. Sunday.log and gets overwritten each week.
+               </p>
+               <h3 id="dayschedule">DaySchedule</h3>
+               <p>
+                  A daily switching plan can be passed to <em>'piSchedule.py'</em>. The switch details are stored in a JSON or INI file, it's assumed to be stored in the same directory as <em>'piSchedule.py'</em>.
+               </p>
+               <p>
+                  The daily switch plan (JSON/INI file) will be reloaded with day change including new values for sunrise/sunset and new random times if defined.
+               </p>
+               <p>
+                  <em>See</em><code>
+                     piSchedule.setup.MD'</code>
+                  <em>for details about</em><code>
+                     'piSchedule.json'/'piSchedule.ini'</code>
+               </p>
+               <hr />
+               <h3 id="pischedule-setup-before-starting"><em>piSchedule</em> Setup before Starting</h3>
+               <p>
+                  Before starting <em>piSchedule</em> two parameters have to be configured: <em>Location</em> and <em>LogID</em>.
+                  <br />
+                  <em><strong>Location</strong></em> is used to calculate the geolocation parameters for the daily recalculation of <em>sunrise/sunset</em>.
+                  <br />
+                  <em><strong>LogID</strong></em> protects <em>piSchedule</em> and has to be used similar to a password at start up on the <em>web pages</em>.
+                  <br />
+                  The setup is supported with a python program
+                  <br />
+               </p>
+               <div class="codehilite">
+                  <pre>     <span class="n">piSetup</span><span class="p">.</span><span class="n">py</span> <span class="n">Location</span><span class="p">=</span><span class="s">&#39;yourTown&#39;</span> <span class="n">LogID</span><span class="p">=</span><span class="s">&#39;yourIDcode&#39;</span>
+</pre>
+</div>
+               <p>
+                  <strong>Note</strong>
+                  <br />
+                  <em>The setup parameters are stored to a file</em><code>
+                     piSchedule.prefs.json</code>
+                  . <em>The 'LogID' is hashed and only the hash is stored.</em>
+                  <br />
+                  <em>To check your 'LogID' against the stored hash, use</em>
+               </p>
+               <div class="codehilite">
+                  <pre>     <span class="n">piSetup</span><span class="p">.</span><span class="n">py</span> <span class="n">hash</span><span class="p">=</span><span class="s">&#39;yourIDcode&#39;</span>
+</pre>
+</div>
+               <p>
+                  <em>instead.</em>
+               </p>
+               <hr />
+               <h2 id="starting-pischedule">Starting <em>piSchedule</em></h2>
+               <p>
+                  <em>piSchedule.py</em> has to be run on the RaspberryPI and will output to the console the current 'daySchedule' as well as other logging details.
+                  <br />
+               </p>
+               <p>
+                  Starts with:
+                  <br />
+               </p>
+               <div class="codehilite">
+                  <pre>    <span class="n">python</span> <span class="n">piSchedule</span><span class="p">.</span><span class="n">py</span> <span class="p">[</span><span class="n">piSchedule</span><span class="p">.</span><span class="n">json</span><span class="o">|</span><span class="n">piScedule</span><span class="p">.</span><span class="n">ini</span><span class="p">]</span>`
+</pre>
+</div>
+               <p>
+                  It's recommended to run 'piSchedule.py' with a terminal program like <strong>tmux</strong> (See ./tmuxStart.sh). Helpful in a RPI configuration without keyboard/terminal using a SSH connection.
+                  <br />
+               </p>
+               <p>
+                  A typical console output of <em>piSchedule.py</em>
+                  <br />
+               </p>
+               <p><img title="piSchedule on Console" src="https://dl.dropboxusercontent.com/u/35444930/piScheduler(pic)/prefs&jobs(c).png"   hspace="14" width="551" >
+               </p>
+               <p>
+                  <a name="web"></a>
+                  <hr>
+               </p>
+               <h2 id="pischedule-with-browser-pc-and-smartphone"><em>piSchedule</em> with Browser (PC and Smartphone)</h2>
+               <p>
+                  After starting <em>piSchedule</em> on the console, a browser page can be used to monitor the <em>piSchedule</em> operation.
+                  <br>
+                  <br />
+                  The required 'url' (server:port) can be seen on the console output on line 1, <strong>example:</strong>
+               </p>
+               <div class="codehilite">
+                  <pre><span class="n">http</span><span class="p">:</span><span class="o">//</span>192<span class="p">.</span>168<span class="p">.</span>178<span class="p">.</span>16<span class="p">:</span>5003
+</pre>
+</div>
+               <h3 id="web-pages-overview">Web Pages Overview</h3>
+               <ul>
+                  <li>
+                     <p>
+                        <strong>Main Menu to select different functions</strong>
+                        <br />
+                        <img title="Main Menu" src="https://dl.dropboxusercontent.com/u/35444930/piScheduler(pic)/mainMenuX.png"   hspace="14" width="451">
+                     </p>
+                     <p>
+                        Access to the different <em>piScheduler</em> functions.
+                        <br />
+                        A button <strong>[pilight]</strong> opens the pilight WebGui.
+                        <br>
+                        <br />
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <strong>List 'Day Schedule and Prefs' (Location, Sunrise/Sunset, Geocoordinates)</strong>
+                        <br />
+                        <img title="Preferences and Jobs" src="https://dl.dropboxusercontent.com/u/35444930/piScheduler(pic)/prefs&jobsX(w).png"  hspace="14" width="451" align="bottum">
+                        <small><em><strong>Note</strong></em> Click on the <em>piSchedule</em> header to go back to Main Menu</small>
+                     </p>
+                     <p>
+                        This page shows the actual day sunrise/sunset time for the selected location. Also shown are the upcoming switch activities for the day.
+                        <br />
+                        <br>
+                        <br />
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <strong>List the daily jobs excecuted already</strong>
+                        <br />
+                        <img title="dayList" src="https://dl.dropboxusercontent.com/u/35444930/piScheduler(pic)/dayListX.png" hspace="14" width="451" align="bottum">
+                        <small><em><strong>Note</strong></em> Click on the <em>piSchedule</em> header to go back to Main Menu</small>
+                     </p>
+                     <p>
+                        Calling this page automatically loads a list with the switch actions already issued of 'Today'.
+                        <br />
+                        Alternatively a list of another weekday can be selected. <em>piSchedule</em> rewrites those files with every new weekday.
+                        <br />
+                     </p>
+                  </li>
+               </ul>
+               <p>
+                  <br>
+               </p>
+               <ul>
+                  <li>
+                     <p>
+                        <strong>'LogID' Page</strong>
+                        <br />
+                        <img title="LogID" src="https://dl.dropboxusercontent.com/u/35444930/piScheduler(pic)/logid.png" hspace="14" width="351" align="bottum">
+                        <small><em><strong>Note</strong></em> -- for later use only.
+                     </p>
+                     <p>
+                        The LogID will be hashed and checked again the one entered with <em>piSetup.py</em></small>
+                        <br />
+                        See also <em>piSetup.py</em>
+                        <br>
+                        <br />
+                        <hr>
+                        <br />
+                        <strong><em>Note</em></strong><em>More functions on the web page to come ..</em>
+                     </p>
+                  </li>
+               </ul>
+               <hr />
+               <h2 id="piconsole"><em>piConsole</em></h2>
+               <p>
+                  <em>piConsole</em> is used to send commands to <em>piSchedule</em>.
+                  <br />
+                  When <em>piSchedule</em> has been started <em>piConsole</em> can pass commands or the name of a day schedule file to <em>piSchedule</em>. That way additional switching instructions can be added and the current day schedule will be replaced by the new one with the next day change.
+               </p>
+               <div class="codehilite">
+                  <pre>    <span class="o">./</span><span class="n">piConsole</span><span class="p">.</span><span class="n">py</span> <span class="p">[</span><span class="n">argument</span><span class="p">]</span>
+</pre>
+</div>
+               <p>
+                  <strong>'argument'</strong> follows the definition for 'piSchedule.ini' or 'piSchedule.json' files
+               </p>
+               <hr />
+               <h2 id="examples-of-the-json-and-ini-files">Examples of the .JSON and .INI files</h2>
+               <ul>
+                  <li>
+                     <a href="https://github.com/neandr/piScheduler/blob/master/piSchedule.json">piSchedule.json</a>
+                  </li>
+                  <li>
+                     <a href="https://github.com/neandr/piScheduler/blob/master/piSchedule.ini">piSchedule.ini</a>
+                  </li>
+                  <li>
+                     <a href="https://github.com/neandr/piScheduler/blob/master/piSchedule.prefs.json">piSchedule.prefs.json</a>
+                  </li>
+               </ul>
+               <hr />
+               <h2 id="installation">Installation</h2>
+               <p>
+                  <strong><em>piSchedule</em></strong> runs on the Raspberry.
+                  <br />
+                  <strong><em>pilight</em></strong> is required to be installed and needs to be running.
+               </p>
+               <p>
+                  <strong><em>piSchedule</em></strong> uses the following <strong>python</strong> packages:
+               </p>
+               <ul>
+                  <li>
+                     For a flexible <strong>date/time</strong> handling [dateutil]. It includes a praser, so simple formatted date/time will be transformed to a full date/time object.
+                     <br />
+                  </li>
+                  <li>
+                     The <strong>Scheduling</strong> works with <strong><a href="https://pypi.python.org/pypi/APScheduler">Advanced Scheduler vers.3</a></strong>
+                  </li>
+                  <li>
+                     <strong>Location/Geolocation/Sunrise/Sunset</strong> switching is calculated with [ephem] and [geopy]
+                  </li>
+                  <li>
+                     <strong>LogID</strong> will be hashed using [pbkdf2]
+                  </li>
+                  <li>
+                     <strong>Web Pages</strong> are supported with [bottle] and [bootstrap]
+                  </li>
+                  <li>
+                     <strong>Multiprocessing/Threads</strong> uses [multiprocessing] [threading]
+                     <br />
+                  </li>
+               </ul>
+               <h4 id="a-brief-installation-overview-of-the-required-python-packages">A brief installation overview of the required python packages</h4>
+               <p>
+                  Installing python <a href="http://www.pip-installer.org/en/latest/installing.html">pip</a>
+               </p>
+               <div class="codehilite">
+                  <pre><span class="o">-</span> <span class="n">download</span> $ <span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="p">.</span><span class="n">py</span> <span class="n">to</span> <span class="n">a</span> <span class="n">working</span> <span class="n">directory</span>
+<span class="o">-</span> <span class="n">run</span>  $ <span class="n">sudo</span> <span class="n">python</span> <span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="p">.</span><span class="n">py</span>
+</pre>
+</div>
+               <p>
+                  Install python packages with pip
+               </p>
+               <div class="codehilite">
+                  <pre><span class="s">&#39;dateutil&#39;</span><span class="p">:</span> 
+$ <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">dateutil</span>
+
+<span class="s">&#39;APScheduler&#39;</span>
+$ <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">apscheduler</span>
+
+<span class="s">&#39;ephem&#39;</span>
+$ <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">ephem</span>    <span class="p">(</span><span class="k">for</span> <span class="n">python</span> 3<span class="p">)</span>
+$ <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyephem</span>  <span class="p">(</span><span class="k">for</span> <span class="n">python</span> 2<span class="p">.</span><span class="n">x</span><span class="p">)</span>
+<span class="s">&#39;geopy&#39;</span>
+$ <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">geopy</span>
+
+<span class="s">&#39;pbkdf2&#39;</span>
+$<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pbkdf2</span>
+
+<span class="s">&#39;bottle&#39;</span>
+$ <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">bottle</span>
+
+<span class="s">&#39;bootstrap&#39;</span>
+<span class="n">That</span> <span class="n">libs</span> <span class="n">are</span> <span class="n">referenced</span> <span class="n">on</span> <span class="n">the</span> <span class="n">web</span> <span class="n">page</span> <span class="n">definition</span> <span class="n">and</span> <span class="n">loaded</span> <span class="n">on</span> <span class="n">request</span>
+</pre>
+</div>
+               <p>
+                  For installation details see also the <a href="https://pypi.python.org/pypi">PyPI - the Python Package Index</a>
+               </p>
+               <hr />
+               <p>
+               <p align='center'>
+                  Using http://markable.in/editor/
+               </p></p>
+            </div>
+
+         </div>
+
+
+
+      </div>
+
+
+
+   </body>
+
+</html>
