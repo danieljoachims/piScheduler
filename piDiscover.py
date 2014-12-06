@@ -99,6 +99,6 @@ def pw(pw):
 
 
 def authKey():
-#---------------------------------
+#--------------------------------
     prefs = getPrefs()
     return str(prefs['piHash'])
