@@ -15,8 +15,6 @@ import piDiscover
 
 
 #-- globals
-loggedin = False
-
 responses = piDiscover.piDiscover("urn:schemas-upnp-org:service:pilight:1");
 
 server = responses[0]
@@ -46,14 +44,10 @@ def getConfig(setting):
       return configure['settings']
 
 
-def getConn():
+def getConn(code):
     global address
-    global authKey
-    global loggedin
 
- #   if loggedin == False:
- #       return ("No valid login!")
-
+    
     conn = Client(address, authkey=piDiscover.authKey())
     qString = request.query_string
     rv = {}
@@ -63,58 +57,37 @@ def getConn():
 
 
 @route('/')
-@post('/home')
-def login_go():
+@post('/')
+def login_check():
     message =  "-prefs"
 
-    conn = getConn()
-    if type(conn['cn']) == type(str()):
-        print (conn['cn'] + " " + message)
-        return conn['cn']
+    rv = {'pilight':'http://192.168.178.16:5001'}
+    return template('piMain', rv)
+
+
+@route('/LogID')
+def logid():
+    message =  "-prefs"
+
+    conn = getConn(True)
+    if type(conn) == type(str()):
+        print (conn + " " + message)
+        return conn
     conn['cn'].send(message)
 
     rv = conn['cn'].recv()
     return template('piLogin', rv)
 
-
-
-@post('/')
-def login_check():
-
-    rv = piDiscover.pw(request.forms.get('password'))
-
-    if rv != None:
-       return rv
-
-    return main1()
-
-
-@post('/main')
-def main1():
-    message =  "-prefs"
-
-    '''
-    conn = getConn()
-    if type(conn['cn']) == type(str()):
-        print ("  piWeb - ", conn['cn'] + " " + message)
-        return conn['cn']
-    #conn['cn'].send(message)
-
-    #rv  = conn['cn'].recv()
-    '''
-
-    rv = {}
-    return template('piMain', rv)
-
-
+@route('/prefs')
 @post('/prefs')
-def main2():
+def prefs():
+
     message =  "-prefs"
 
-    conn = getConn()
-    if type(conn['cn']) == type(str()):
-        print ("  piWeb - ", conn['cn'] + " " + message)
-        return conn['cn']
+    conn = getConn(None)
+    if type(conn) == type(str()):
+        print ("  piWeb - ", conn + " " + message)
+        return conn
     conn['cn'].send(message)
 
     rv  = conn['cn'].recv()
@@ -130,10 +103,10 @@ def main2():
 def close():
     message =  "-close"
 
-    conn = getConn()
-    if type(conn['cn']) == type(str()):
-        print (conn['cn'] + " " + message)
-        return conn['cn']
+    conn = getConn(None)
+    if type(conn) == type(str()):
+        print (conn + " " + message)
+        return conn
     conn['cn'].send(message)
 
     rv  = conn['cn'].recv()
@@ -143,33 +116,17 @@ def close():
     #return msg
 
 
-@route('/control')
-def pilightPort():
-    message =  "-control"
-
-    conn = getConn()
-
-    qString = conn['qStr']
-    if type(conn['cn']) == type(str()):
-        print (conn['cn'] + " " + message)
-        return conn['cn']
-    conn['cn'].send(message + qString)
-
-    rv  = conn['cn'].recv()
-    return (str(rv))
-
-
 @route('/jobs')
 def jobs():
     message =  "-jobs"    
 
-    conn = getConn()
+    conn = getConn(None)
     qString = conn['qStr']
     print (" request :" + qString)
 
-    if type(conn['cn']) == type(str()):
-        print (conn['cn'] + " " + message)
-        return conn['cn']
+    if type(conn) == type(str()):
+        print (conn + " " + message)
+        return conn
     conn['cn'].send(message)
 
     rv  = conn['cn'].recv()
@@ -192,25 +149,29 @@ def jobs():
     jString = str(output).replace("', '","").replace("']","").replace("['","")
     return (jString)
 
-
 @post('/logs')
 def logs():
 
     now = datetime.datetime.now()
     today = now.strftime("%A")
 
+    logList()
     rv = {'logList':'', 'today':today, 'selectedDay':''}
     return template('piLogs', rv)
 
-
+@route('/logs')
 @post('/logList')
 def logList():
 
-    conn = getConn()
+    conn = getConn(None)
     qString = conn['qStr']
     selectedDay = qString.strip()
  
     now = datetime.datetime.now()
+    today = now.strftime("%A")
+    if selectedDay == "":
+        selectedDay = today
+
     fLog = '/home/pi/piScheduler/' + selectedDay +'.log'
 
     try:
@@ -238,4 +199,20 @@ def logList():
     rv = {'logList':output,  'today':today,  'selectedDay': selectedDay}
     return template('piLogs', rv)
 
+
+#----------------------------------------------
+@route('/control')
+def pilightControl():
+    message =  "-control"
+
+    conn = getConn(None)
+
+    qString = conn['qStr']
+    if type(conn) == type(str()):
+        print (conn + " " + message)
+        return conn
+    conn['cn'].send(message + qString)
+
+    rv  = conn['cn'].recv()
+    return (str(rv))
 
