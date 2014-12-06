@@ -32,11 +32,13 @@ def pw(prefs, code, type):
             return
 
 
+
+
 def getGeo(prefs, timeout):
 
-    prefs['Latitude'] = ""
+    prefs['Latitude'] = "" 
     prefs['Longitude'] = ""
-
+ 
     location = Nominatim().geocode(aLocation,timeout=int(timeout))
 
     prefs['Latitude'] = str(location.latitude)
@@ -63,13 +65,13 @@ gTimeout = 10
 
 for arg in sys.argv:
 
-   if "LogID=" == arg[0:6]:
+   if "LogID=" == arg[0:6]:          
       aLogID = arg[6:]
 
    if "hash=" == arg[0:5]:
       hash = arg[5:]
 
-   if "Location=" == arg[0:9]:
+   if "Location=" == arg[0:9]:          
       aLocation= arg[9:]
 
       if "GeoTimeout=" == arg[0:11]:
