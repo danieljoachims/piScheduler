@@ -22,10 +22,8 @@
   <body>
 
     <section class="container">
-      <h3>piScheduler <small><i> -- Status of Preferences and Jobs</i></small></h3>
- 
-      <!-- Anmeldeformular  mit Eingabefeld und Button -->
-
+      <h3 id="logid" title="Enter LogID after starting piSchedule" >piScheduler <small><i> - LogID</i></small></h3>
+        <br>
         <form action="/" method="post" class="well">
             ID: <input name="password" type="password" />
            <button type="submit" class="btn btn-primary">Enter ID</button>
@@ -41,4 +39,3 @@
     </style>
 
 </html>
-
