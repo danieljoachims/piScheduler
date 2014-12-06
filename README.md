@@ -1,5 +1,6 @@
 *piSchedule*   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 ==========
+*A python extension* for &nbsp;&nbsp;__[pilight] (http://www.pilight.org/)__&nbsp;&nbsp; to enable scheduling for switches      
 
 For <em>Documentation</em> details, please visit     
 
