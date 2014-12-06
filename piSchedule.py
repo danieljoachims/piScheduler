@@ -15,7 +15,7 @@
          Also switching based on sunrise/sunset is possible. 'ephem' is used. 
          Details see [pyphem](http://rhodesmill.org/pyephem/)
 
-    See 'piSchedule.MD'  for more details and installation
+    See 'README.md'  for more details and installation
 '''
 # ------------------------------------------------------------------------------
 from __future__ import print_function
@@ -172,7 +172,8 @@ def pilightSchedule(onTime, actualDevice, currentSwitch):
    '''
    global jobs  # holds all scheduled 'fire_pilight' jobs
 
-   actualSwitch = currentSwitch.strip().split(",")
+   #actualSwitch = currentSwitch.strip().split(",")
+   actualSwitch = currentSwitch.strip().replace("%20","").split(",")
 
    if ('on' in actualSwitch or 'off' in actualSwitch) == False:
       return 'ERROR: no on/off'
@@ -297,12 +298,12 @@ def jobListINI(jobList, name):
       cJob = cJobs.split(";")
       cJobLen = len(cJob)
       if cJobLen > 1 :
-         actualDevice = cJob[0].strip()
+         actualDevice = cJob[0].strip().replace("%20","")
 
       now = datetime.datetime.now()
       n = 1
       while n < (cJobLen):
-         currentSwitch = cJob[n].strip()
+         currentSwitch = cJob[n].strip().replace("%20","")
          now = pilightSchedule(now, actualDevice, currentSwitch)
          n += 1
    return now
@@ -380,7 +381,7 @@ def updateJobsListing():
     print(piGet('mainTitle'),  
        str(datetime.datetime.now())[:19], 
        " (", str(piGet('nextSwitchTime'))[:19] + ")", " " + prefs['server'] + ":" 
-          + str(int(prefs['port_pilight'])+1),
+          + str(int(prefs['port_pilight'])+2),
        "\n" + piGet('geo_message'),
        "\n" + "\033[1m  Current Jobs \033[0m" + "    [" + str(piGet('job_file')) + "]    [" + logFile() +"]")
 
@@ -509,8 +510,9 @@ def jobs_serve(jobs_event, name):
                   if message[8:] == "":
                       reply = ("  Control:  no control string!")
                   else:
-                      job_commands(message[8:], name)
-                      reply = "Control Done: ", message[8:]
+                      cmsg = message[8:].replace("%20","")
+                      job_commands(cmsg, name)
+                      reply = "Control Done: ", cmsg
 
                elif message[1:] == 'close':
                    caller = str(listener.last_accepted)
@@ -589,7 +591,7 @@ def startup():
 
    print (piGet('mainTitle'), "  ",
        str(datetime.datetime.now())[:19], "   next: ", str(next)[:19], " " + prefs['server'] 
-         + " " + str(int(prefs['port_pilight'])+1)), "\n", piGet('geo_message')
+         + " " + str(int(prefs['port_pilight'])+2)), "\n", piGet('geo_message')
 
    return None
 
