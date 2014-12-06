@@ -22,10 +22,12 @@
   <body>
 
     <section class="container">
-      <h3>piScheduler <small><i> -- Status of Preferences and Jobs </i></small></h3>
- 
-      <p></p>
-      <!-- Tabelle mit abwechselnder Zellenhintergrundfarbe und Aufraeumen -->
+      <h3 style="cursor:pointer" id="main" title="Go to Main Menu">
+           <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+           <i> piSchedule </i><small> -- Preferences and Jobs</small>    
+      </h3>
+
+      <br>
       <table class="table table-striped table-bordered">
         <tbody>
           <tr>
@@ -47,6 +49,14 @@
       </table>
       &&timeTable&&
     </section>
+
+
+    <script>
+        $('#main').on('click', function(event) {
+            location.replace('/')
+        });
+    </script>
+
 
     <style type="text/css">
          h3 {
