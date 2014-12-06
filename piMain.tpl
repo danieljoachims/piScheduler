@@ -1,115 +1,113 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>piScheduler Status</title>
+      <title>piScheduler Status</title>
 
-        <!-- optional: Einbinden der jQuery-Bibliothek -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <!-- optional: Einbinden der jQuery-Bibliothek -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
-    </head>
-
-    <body>
-
-        <section class="container">
-
-            <div class="container">
-                <div class="row">
-                    <h3>piScheduler <small><i> - Main Menu</i></small></h3>
-
-                    <div class="col-sm-2">
-                        <form id="formAction" action="/home" method="post">
-                            <button type="submit" class="btn btn-primary">
-                                Home
-                            </button>
-                        </form>
-                    </div>
-
-                    <div class="col-sm-2" width="80px">
-                        <form id="formAction1" action="/prefs" method="post">
-                            <button type="submit" class="btn btn-primary">
-                                Prefs & Jobs
-                            </button>
-                        </form>
-                    </div>
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 
-                    <div class="col-sm-2">
-                        <form id="formAction2" action="/logs" method="post">
-                            <button type="submit" class="btn btn-primary">
-                                Log List
-                            </button>
-                        </form>
-                    </div>
+      <style type="text/css">
+         h3 {
+            background: silver;
+         }
 
+         h4 {
+            background: silver;
+         }
 
-                </div>
+         .btn-input {
+            display: block;
+         }
+
+         .btn-input .btn.form-control {
+            text-align: left;
+         }
+
+         .btn-input .btn.form-control span:first-child {
+            left: 10px;
+            overflow: hidden;
+            position: absolute;
+            right: 25px;
+         }
+
+         .btn-input .btn.form-control .caret {
+            margin-top: -1px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+         }
+      </style>
+
+   </head>
+
+   <body>
+
+      <section class="container">
+
+         <div class="container">
+            <div class="row">
+               <h3 style="cursor:pointer" title="Select function"><i> piScheduler </i><small> -- Main Menu</small></h3>
             </div>
 
+            <ul class="nav nav-pills">
+               <li role="presentation" class="active"><a href="/prefs">Preferences and Jobs</a></li>
+               <li role="presentation"><a href="/logs">Day Logs</a></li>
+               <li role="presentation"><a href={{pilight}}>pilight</a></li>
 
-            <script>
-                $('#daySelect').on('click', 'li', function(event) {
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+     Docu <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+        <li role="presentation"><a href="https://dl.dropboxusercontent.com/u/35444930/piScheduler_doc_0.2/piScheduler.md.html">Overview</a></li>
+        <li role="presentation"><a href="https://dl.dropboxusercontent.com/u/35444930/piScheduler_doc_0.2/piScheduleExamples.md.html">Schedule Examples</a></li>
+        <li role="presentation"><a href="https://dl.dropboxusercontent.com/u/35444930/piScheduler_doc_0.2/piScheduleFeatures.md.html">Schedule Features</a></li>
 
-                    var $target = $(event.currentTarget);
-                    var sDay = $target.text().trim()
+    </ul>
+  </li>
 
-                    $target.closest('.btn-group').find('[data-bind="label"]').text($target.text()).end().children('.dropdown-toggle').dropdown('toggle');
-                    $('#formAction').attr('action', ('/logList?' + sDay))
-                    $('#formAction').submit();
-                    return sDay;
-                });
 
-            </script>
 
-            <style type="text/css">
-                    h3 {
-                       background: silver;
-                    }
+            </ul>
 
-	            h4 {
-	               background: silver;
-	            }
+         </div>
+       </section>
 
-	            .btn-input {
-	               display: block;
-	            }
+      <section id="logList">
 
-	            .btn-input .btn.form-control {
-	               text-align: left;
-	            }
+      </section>
 
-	            .btn-input .btn.form-control span:first-child {
-	               left: 10px;
-	               overflow: hidden;
-	               position: absolute;
-	               right: 25px;
-	            }
+      <script>
+         $('#home').on('click', function(event) {
+            location.replace('/')
+         });
 
-	            .btn-input .btn.form-control .caret {
-	               margin-top: -1px;
-	               position: absolute;
-	               right: 10px;
-	               top: 50%;
-	            }
-            </style>
+         $('#daySelect').on('click', 'li', function(event) {
 
-        </section>
+            var $target = $(event.currentTarget);
+            var sDay = $target.text().trim()
 
-        <section id="logList">
-            	
-        </section>
-    </body>
+            $target.closest('.btn-group').find('[data-bind="label"]').text($target.text()).end().children('.dropdown-toggle').dropdown('toggle');
+            $('#formAction').attr('action', ('/logList?' + sDay))
+            $('#formAction').submit();
+            return sDay;
+         });
+
+      </script>
+
+
+   </body>
 
 </html>
-
-
