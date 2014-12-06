@@ -1,133 +1,127 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>piScheduler Status</title>
+      <title>piScheduler Status</title>
 
-        <!-- optional: Einbinden der jQuery-Bibliothek -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <!-- optional: Einbinden der jQuery-Bibliothek -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-    </head>
+   </head>
 
-    <body>
+   <body>
 
-        <section class="container">
+      <section class="container">
 
-            <div class="container">
-                <div class="row">
-                    <h3>piScheduler <small><i> - Day List of Jobs</i></small></h3>
+         <div class="container">
+            <div class="row">
 
-                    <div class="col-sm-1">
-                        <form id="formAction" action="/logList?{{today}}" method="post">
-                            <button type="submit" class="btn btn-primary">
-                                Today
-                            </button>
-                        </form>
-                    </div>
+               <h3 style="cursor:pointer" id="home" title="Go to Main Menu">
+                  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                  <i> piSchedule </i><small> -- Day List of Jobs</small></h3>
 
-                    <div class="col-sm-3">
+               <ul class="nav nav-pills">
 
-                        <div class="btn-group btn-input clearfix">
+                  <li role="presentation" class="active" id="formAction">
+                     <a href="/logs">Today</a>
+                  </li>
 
-                            <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
-                                <span data-bind="label">Select Day</span>&nbsp;<span class="caret"></span>
-                            </button>
+                  <li role="presentation" class="dropdown">
+                     <a class="dropdown-toggle" data-toggle="dropdown" 
+                         href="#" role="button" 
+                         aria-expanded="false"> Select a day <span class="caret"></span> </a>
+                     <ul class="dropdown-menu" role="menu" id="daySelect">
+                        <li>
+                           <a href="/logs?Monday">Monday</a>
+                        </li>
+                        <li>
+                           <a href="/logs?Tuesday">Tuesday</a>
+                        </li>
+                        <li>
+                           <a href="/logs?Wednesday">Wednesday</a>
+                        </li>
+                        <li>
+                           <a href="/logs?Thursday">Thursday</a>
+                        </li>
+                        <li>
+                           <a href="/logs?Friday">Friday</a>
+                        </li>
+                        <li>
+                           <a href="/logs?Saturday">Saturday</a>
+                        </li>
+                        <li>
+                           <a href="/logs?Sunday">Sunday</a>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
 
-                            <ul class="dropdown-menu" role="menu" id="daySelect">
-                                <li>
-                                    <a href="#">Monday</a>
-                                </li>
-                                <li>
-                                    <a href="#">Tuesday</a>
-                                </li>
-                                <li>
-                                    <a href="#">Wednesday</a>
-                                </li>
-                                <li>
-                                    <a href="#">Thursday</a>
-                                </li>
-                                <li>
-                                    <a href="#">Friday</a>
-                                </li>
-                                <li>
-                                    <a href="#">Saturday</a>
-                                </li>
-                                <li>
-                                    <a href="#">Sunday</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                </div>
             </div>
+         </div>
 
-            <h4>{{selectedDay}}</h4>
+         <h4>{{selectedDay}}</h4>
 
-            <script>
-                $('#daySelect').on('click', 'li', function(event) {
+         <script>
+            $('#home').on('click', function(event) {
+               location.replace('/')
+            });
 
-                    var $target = $(event.currentTarget);
-                    var sDay = $target.text().trim()
+            $(document).ready(function() {
+               var href = location.href;
+               if (href.substring(8).split("/")[1] == "logs")
+                  $('#formAction').submit();
+            });
+            // document.ready
 
-                    $target.closest('.btn-group').find('[data-bind="label"]').text($target.text()).end().children('.dropdown-toggle').dropdown('toggle');
-                    $('#formAction').attr('action', ('/logList?' + sDay))
-                    $('#formAction').submit();
-                    return sDay;
-                });
+         </script>
 
-            </script>
+         <style type="text/css">
+            h3 {
+               background: silver;
+            }
 
-	            <style type="text/css">
-                    h3 {
-                       background: silver;
-                    }
+            h4 {
+               background: silver;
+            }
 
-	            h4 {
-	               background: silver;
-	            }
+            .btn-input {
+               display: block;
+            }
 
-	            .btn-input {
-	               display: block;
-	            }
+            .btn-input .btn.form-control {
+               text-align: left;
+            }
 
-	            .btn-input .btn.form-control {
-	               text-align: left;
-	            }
+            .btn-input .btn.form-control span:first-child {
+               left: 10px;
+               overflow: hidden;
+               position: absolute;
+               right: 25px;
+            }
 
-	            .btn-input .btn.form-control span:first-child {
-	               left: 10px;
-	               overflow: hidden;
-	               position: absolute;
-	               right: 25px;
-	            }
+            .btn-input .btn.form-control .caret {
+               margin-top: -1px;
+               position: absolute;
+               right: 10px;
+               top: 50%;
+            }
+         </style>
 
-	            .btn-input .btn.form-control .caret {
-	               margin-top: -1px;
-	               position: absolute;
-	               right: 10px;
-	               top: 50%;
-	            }
-            </style>
+      </section>
 
-        </section>
-
-        <section id="logList">
-            {{!logList}}	
-        </section>
-    </body>
+      <section id="logList">
+         {{!logList}}
+      </section>
+   </body>
 
 </html>
-
-
