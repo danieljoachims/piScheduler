@@ -1,4 +1,4 @@
-Read the Documentation
+Read the Documentation on Dropbox
 ----------------------
 
-![*piSchedule* Overview](https://github.com/neandr/piScheduler/development/d.html)
+![*piSchedule* Overview](https://dl.dropboxusercontent.com/u/35444930/piScheduler.doc/piScheduler.md.html)
