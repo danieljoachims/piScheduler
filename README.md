@@ -1,6 +1,6 @@
 *piSchedule*   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *An extension* for __[pilight](http://www.pilight.org/)__
 ---------
-<p style="text-align: right;">[Deutsche Beschreibung](../DE/piScheduleREADme.html)</p>
+<p style="text-align: right;">[Deutsche Beschreibung](https://dl.dropboxusercontent.com/u/35444930/piScheduler/DE/piScheduleREADme.html)</p>
 
 Time scheduled switching of devices made easy with a menu driven approach on a web interface using your smartphone, tablet or PC. 
 
@@ -11,7 +11,7 @@ Only running a browser is required for setup, operation, logging and documentati
 
 For detailed *Use and Installation* see the documentation, please visit     
 
- * [Overview / Use and Installation](https://dl.dropboxusercontent.com/u/35444930/piScheduler//EN/piScheduleOverview.html)
+ * [Overview / Use and Installation](https://dl.dropboxusercontent.com/u/35444930/piScheduler/EN/piScheduleOverview.html)
  * [Scheduling Examples](https://dl.dropboxusercontent.com/u/35444930/piScheduler/EN/piScheduleExamples.html)
  * [Scheduling Features](https://dl.dropboxusercontent.com/u/35444930/piScheduler/EN/piScheduleFeatures.html)
 
