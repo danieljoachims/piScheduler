@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>piScheduler Status</title>
+      <title>piSchedule</title>
 
       <!-- optional: Einbinden der jQuery-Bibliothek -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -58,54 +58,109 @@
 
          <div class="container">
             <div class="row">
-               <h3 style="cursor:pointer" title="Select function"><i> piScheduler </i><small> -- Main Menu</small></h3>
+               <h3 style="cursor:pointer" title="{{mainMenuText}}"><i> piSchedule </i><small> -- {{mainMenu}}</small></h3>
             </div>
 
             <ul class="nav nav-pills">
-               <li role="presentation" class="active"><a href="/prefs">Preferences and Jobs</a></li>
-               <li role="presentation"><a href="/logs">Day Logs</a></li>
+               <li role="presentation" class="active"><a title="{{mainTitle}}" href="/prefs">{{mainText}}</a></li>
+
+               <li role="presentation" class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-expanded="false" 
+                     href="#"  title="{{editTitle}}">{{editText}}<span class="caret"></span>
+                  </a>
+                  <ul id="editMenu" class="dropdown-menu" role="menu">
+                     &&iniFileList&&
+                  </ul>
+               </li>
+
+
+               <li role="presentation"><a href="/logs">{{dayLogs}}</a></li>
                <li role="presentation"><a href={{pilight}}>pilight</a></li>
 
-  <li role="presentation" class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-     Docu <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu" role="menu">
-        <li role="presentation"><a href="https://dl.dropboxusercontent.com/u/35444930/piScheduler_doc_0.2/piScheduler.md.html">Overview</a></li>
-        <li role="presentation"><a href="https://dl.dropboxusercontent.com/u/35444930/piScheduler_doc_0.2/piScheduleExamples.md.html">Schedule Examples</a></li>
-        <li role="presentation"><a href="https://dl.dropboxusercontent.com/u/35444930/piScheduler_doc_0.2/piScheduleFeatures.md.html">Schedule Features</a></li>
+               <li role="presentation" class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                    Docu <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" role="menu">
+                       <li role="presentation" >
+                          <a role="menuitem" style="cursor:pointer;" onclick="openHelp('Overview')">&nbsp; {{docOverview}} &nbsp;</a>
+                          <a role="menuitem" style="cursor:pointer;" onclick="openHelp('Edit')">&nbsp; {{docEdit}} &nbsp;</a>
+                          <a role="menuitem" style="cursor:pointer;" onclick="openHelp('Examples')">&nbsp; {{docExamples}} &nbsp;</a>
+                          <a role="menuitem" style="cursor:pointer;" onclick="openHelp('Features')">&nbsp; {{docFeatures}} &nbsp;</a>
+                       </li>
 
-    </ul>
-  </li>
+                       <li class='divider'></li>
+
+                       <li role='presentation'>
+                           <a role="menuitem"  style="cursor:pointer;" onclick="setLocale('DE')"  >&nbsp; Deutsch &nbsp;</a>
+                           <a role="menuitem"  style="cursor:pointer;" onclick="setLocale('EN')"  >&nbsp; English &nbsp;</a>
+                       </li>
+
+                       <li class='divider'></li>
+
+                       <li role='presentation'>
+                           <a role="menuitem"  style="cursor:pointer;" onclick="piClose()"  >&nbsp; {{terminate}}</a>
+                       </li>
 
 
+                  </ul>
+               </li>
 
             </ul>
 
          </div>
+
        </section>
 
       <section id="logList">
 
       </section>
 
+
       <script>
          $('#home').on('click', function(event) {
             location.replace('/')
          });
 
-         $('#daySelect').on('click', 'li', function(event) {
 
-            var $target = $(event.currentTarget);
-            var sDay = $target.text().trim()
 
-            $target.closest('.btn-group').find('[data-bind="label"]').text($target.text()).end().children('.dropdown-toggle').dropdown('toggle');
-            $('#formAction').attr('action', ('/logList?' + sDay))
-            $('#formAction').submit();
-            return sDay;
-         });
+         function piClose() {
+           if (confirm("  *** piSchedule  beenden?") == true) {
+               var info = ("  *** piSchedule beendet " + new Date().toLocaleString())
+               console.log(info)
+               $.get('/close?' + info)
+              return
+           }
+        }
 
-      </script>
+
+         function setLocale(lang) {
+             language = lang
+console.log("piMain   set 'Locale'  language:" + language)
+             $.get('/locale', lang)
+
+             setTimeout(function() { location.replace('/')},150);
+          };
+
+
+         var page = null;
+         var language = '&&language&&'
+
+         function openHelp(name) {
+             var main = "https://dl.dropboxusercontent.com/u/35444930/piScheduler/"
+
+             //console.log('**** piSchedule/piMain   language:' + language)
+
+             if (page != null) {page.close()}
+             switch (name) {
+                case 'Overview':  page = window.open(main + language + "/piScheduleOverview.html",'piScheduleDocu');break;
+                case 'Edit':      page = window.open(main + language + "/piScheduleEdit.html",'piScheduleDocu');break;
+                case 'Examples':  page = window.open(main + language + "/piScheduleExamples.html",'piScheduleDocu');break;
+                case 'Features':  page = window.open(main + language + "/piScheduleFeatures.html",'piScheduleDocu');break;
+             }
+          }
+
+        </script>
 
 
    </body>

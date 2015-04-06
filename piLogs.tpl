@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>piScheduler Status</title>
+      <title>piScheduler Logs</title>
 
       <!-- optional: Einbinden der jQuery-Bibliothek -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -26,41 +26,43 @@
          <div class="container">
             <div class="row">
 
-               <h3 style="cursor:pointer" id="home" title="Go to Main Menu">
-                  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                  <i> piSchedule </i><small> -- Day List of Jobs</small></h3>
+               <h3 style="cursor:pointer;height:32px" id="home" title="Go to Main Menu" >
+                  <i> piSchedule </i><small> -- {{dayList}}</small>
+                  <button class="btn btn-default btn-sm dropdown-toggle glyphicon glyphicon-home pull-right" type="button">
+                  </button>
+               </h3>
 
                <ul class="nav nav-pills">
 
                   <li role="presentation" class="active" id="formAction">
-                     <a href="/logs">Today</a>
+                     <a href="/logs">{{Today}}</a>
                   </li>
 
                   <li role="presentation" class="dropdown">
                      <a class="dropdown-toggle" data-toggle="dropdown" 
                          href="#" role="button" 
-                         aria-expanded="false"> Select a day <span class="caret"></span> </a>
+                         aria-expanded="false"> {{selectDay}} <span class="caret"></span> </a>
                      <ul class="dropdown-menu" role="menu" id="daySelect">
                         <li>
-                           <a href="/logs?Monday">Monday</a>
+                           <a href="/logs?Monday">{{Monday}}</a>
                         </li>
                         <li>
-                           <a href="/logs?Tuesday">Tuesday</a>
+                           <a href="/logs?Tuesday">{{Tuesday}}</a>
                         </li>
                         <li>
-                           <a href="/logs?Wednesday">Wednesday</a>
+                           <a href="/logs?Wednesday">{{Wednesday}}</a>
                         </li>
                         <li>
-                           <a href="/logs?Thursday">Thursday</a>
+                           <a href="/logs?Thursday">{{Thursday}}</a>
                         </li>
                         <li>
-                           <a href="/logs?Friday">Friday</a>
+                           <a href="/logs?Friday">{{Friday}}</a>
                         </li>
                         <li>
-                           <a href="/logs?Saturday">Saturday</a>
+                           <a href="/logs?Saturday">{{Saturday}}</a>
                         </li>
                         <li>
-                           <a href="/logs?Sunday">Sunday</a>
+                           <a href="/logs?Sunday">{{Sunday}}</a>
                         </li>
                      </ul>
                   </li>
@@ -69,19 +71,21 @@
             </div>
          </div>
 
-         <h4>{{selectedDay}}</h4>
+
+         <h4>&&currentDay&&</h4>
 
          <script>
             $('#home').on('click', function(event) {
                location.replace('/')
             });
 
+            // with page loading display "Today" logs
             $(document).ready(function() {
                var href = location.href;
                if (href.substring(8).split("/")[1] == "logs")
                   $('#formAction').submit();
             });
-            // document.ready
+            //  document.ready
 
          </script>
 
@@ -119,9 +123,11 @@
 
       </section>
 
-      <section id="logList">
+      <section class="container" id="logList">
          {{!logList}}
       </section>
    </body>
 
 </html>
+
+

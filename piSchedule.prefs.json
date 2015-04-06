@@ -1,5 +1,1 @@
-{
-  "Location": "Mettmann/Germany",
-  "Latitude": "51.2500000",
-  "Longitude": "6.9666700"
-}
+{"port_pilight": 5001, "locale": "DE", "Longitude": "6.971", "server": "192.168.178.16", "sunset": "2015-03-22 18:48:11.000006", "Location": "Mettmann", "Latitude": "51.256", "sunrise": "2015-03-22 06:30:58.000006"}

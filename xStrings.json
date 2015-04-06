@@ -1,0 +1,296 @@
+{
+  "piSchedule": {
+    "nopilight": {
+      "EN": "pilight not answering! Make sure pilight is started!",
+      "DE": "pilight antwortet nicht! pilight muss gestartet sein!"
+    },
+    "noconfigFile": {
+      "EN": "No configure file or missing access rights!",
+      "DE": "Keine `configure` Datei oder falsche Zugriffsrechte!"
+    },
+    "noGeoloaction": {
+      "EN": "pilight/piSchedule prefs: GeoCoordinates not supported!",
+      "DE": ""
+    },
+    "noState": {
+      "EN": "ERROR: no on/off",
+      "DE": "Fehler: kein on/off"
+    },
+    "unknownString": {
+      "EN": "unknown string",
+      "DE": "Unbekannte Eingabe"
+    },
+    "beforeTime": {
+      "EN": "Before current time",
+      "DE": "Vor der aktuellen Zeit"
+    },
+    "prefsFile": {
+      "EN": "pilight/piSchedule `prefs` file",
+      "DE": "pilight/piSchedule `prefs` Datei"
+    },
+    "notFound": {
+      "EN": "not found!",
+      "DE": "nicht gefunden!"
+    },
+    "noGeoCordinates": {
+      "EN": "GeoCoordinates not supported!",
+      "DE": "GeoCoordinates nicht unterstützt!"
+    },
+    "scheduleList": {
+      "EN": "Schedule Listing",
+      "DE": "Tagesplan Liste"
+    },
+    "daySchedule": {
+      "EN": "Day Schedule",
+      "DE": "Tagesplan"
+    },
+
+
+    "startWithINI": {
+      "EN": "piSchedule  To start with a 'Day Schedule' select an INI file",
+      "DE": "piSchedule  Zum Starten Tagesplan INI Datei auswählen"
+    },
+    "selectINI": {
+      "EN": "Selection with [number]; Terminate with [0]",
+      "DE": "Auswahl mit [Nummer]; Abbruch mit [0]"
+    },
+    "selectionMax": {
+      "EN": "Wrong selection ! Max :",
+      "DE": "Auswahl ungültig! Max :"
+    },
+    "terminated": {
+      "EN": "Terminated!",
+      "DE": "Abbruch!"
+    },
+    "iniIs": {
+      "EN": "INI file selection is",
+      "DE": "INI File Auswahl ist"
+    }
+
+  },
+
+
+  "piEdit": {
+    "EN": {
+      "prefJobs": "Edit Day Schedule and Jobs",
+      "dateTime": "Date / actual time",
+      "gotoMain": "Go to Main Menu",
+      "Sunrise": "Sunrise",
+      "Sunset": "Sunset",
+      "jobDef": "Job Definition",
+      "createSchedule": "Create/Add/Delete `Jobs` for `Day Schedule`",
+      "createJob": "Create and execute `Job`",
+      "Device": "Device",
+      "ON": "ON",
+      "Time": "Time",
+      "ONoffset": "ONoffset",
+      "random": "random",
+      "randomMinus": "random minus",
+      "OFF": "OFF",
+      "OFFoffset": "OFFoffset",
+
+      "editJob": "Edit Job Definition",
+      "clearJob": "Clear Job Definition",
+      "addJob": "Add Job to `Job List`",
+      "exJob": "Execute Job", 
+
+      "helpDocu": "Help/Docu",
+      "helpJob": "Edit Day Schedule and Jobs",
+
+      "SetTime": "Set",
+      "daySchedule": "Day Schedule",
+      "collJob": "Collection and Storage of Job Definitions",
+
+      "jobListFunctions": "Job List Functions",
+      "scheduleFile": "Day Schedule File",
+
+      "editJobandList": "Edit selected 'Job' of Job List",
+      "selectedJob": "Selected Job",
+      "edit": "Edit",
+      "save": "Save",
+      "erase":"Erase",
+
+      "actualDaySchedule":"Actual Day Schedule",
+      "jobsToScheduler": "This functions work with the 'Actual Day Schedule' and the 'Jobs' on this Job List.",
+      "addJobs": "Add all Jobs",
+      "removeJobs": "Remove all Jobs",
+      "loadJobs": "Load Jobs and set for INI File",
+
+      "shiftUp": "Shift up the selected `Job`",
+      "shiftDown": "Shift down the selected `Job`",
+
+      "editJobHelp": "`Edit Job/Schedule` Help/Docu",
+
+      "errJob": "Schedule Job definition Error: No Device",
+      "selectRow": "Select a row on `Day Schedule`",
+      "selectRow1": "new `Job` will be inserted before that row!",
+      "selectJobRow": "First select a `Job` on `Day Schedule` for Edit / Delete!",
+      "deviceNotDefined": "`Device` not defined!",
+      "deviceNotSelected": "No device selected!",
+      "defineTime": "Define `ON` or `OFF` time!",
+      "leavePage": "This page is asking you to confirm that you want to leave - data you have entered may not be saved.",
+      "unsavedStuff": "You have unsaved stuff. Are you sure to leave?",
+      "jobList":"Job List"
+    },
+    "DE": {
+      "prefJobs": "Tagesplan und Jobs editieren",
+      "dateTime": "Datum / aktuelle Zeit",
+      "gotoMain": "Zum Haupt Menue",
+      "Sunrise": "Sonnenaufgang",
+      "Sunset": "Sonnenuntergang",
+      "jobDef": "Job Definition",
+      "createSchedule": "`Jobs` für `Tagesplan` erstellen",
+      "createJob": "`Job` erstellen und ausführen",
+      "Device": "Gerät",
+      "ON": "EIN",
+      "Time": "Zeit",
+      "ONoffset": "EIN Offset",
+      "random": "zufällig",
+      "randomMinus": "zufällig minus",
+      "OFF": "AUS",
+      "OFFoffset": "AUS Offset",
+
+      "editJob": "Job Definition editieren",
+      "clearJob": "Job Definition löschen",
+      "addJob": "Job zur `Job Liste` hinzufügen",
+      "exJob": "Job ausführen",
+
+      "helpDocu": "Help/Doku",
+      "helpJob": "Tagesplan und Jobs editieren", 
+
+      "SetTime": "Setzen",
+      "daySchedule": "Tagesplan",
+      "collJob": "Job Definitionen Zusammenstellung und Speicherung",
+
+      "jobListFunctions": "Job Liste Funktionen",
+      "scheduleFile": "Tagesplan Datei",
+
+      "editJobandList": "Gewählten Job der Job Liste bearbeiten.",
+      "selectedJob": "Gewählter Job",
+      "edit": "Bearbeiten",
+      "save": "Speichern",
+      "erase":"Löschen",
+
+      "actualDaySchedule":"Aktueller Tagesplan",
+      "jobsToScheduler": "Diese Funktionen arbeiten mit dem 'Aktuellen Tagesplan' und den angezeigten 'Jobs' der Job Liste.",
+      "addJobs": "Alle Jobs hinzufügen",
+      "removeJobs": "Entfernen aller Jobs",
+      "loadJobs": "Jobs laden und als INI Datei setzen",
+
+      "shiftUp": "Job nach oben verschieben",
+      "shiftDown": "Job nach unten verschieben",
+
+      "editJobHelp": "Hilfe/Doku zu `Editiere Job/Tagesplan`",
+
+      "errJob": "Fehler Tagesplan Definition: Kein Gerät",
+      "selectRow": "`Job`/Zeile des `Tagesplanes` auswählen",
+      "selectRow1": "Neuer `Job` wird vor dieser Zeile eingefügt!",
+      "selectJobRow": "Zum Editieren/Löschen zunächst einen `Job` auf dem `Tagesplan` wählen",
+      "deviceNotDefined": "`Gerät` nicht definiert!",
+      "deviceNotSelected": "Kein Gerät ausgewählt!",
+      "defineTime": "Zeit für `EIN` oder `AUS` definieren!",
+      "leavePage": "Diese Seite verlangt eine Bestätigung zum Verlassen -- eingegebene Daten können nicht gesichert sein!",
+      "unsavedStuff": "Es gibt ungesicherte Eingaben. Soll die Seite wirklich geschlossen werden?",
+      "jobList":"Job Liste"
+
+    }
+  },
+
+
+  "piPrefs": {
+    "EN": {
+      "prefJobs": "Preferences and Jobs",
+      "dateTime": "Date / actual time",
+      "gotoMain": "Go to Main Menu",
+      "Sunrise": "Sunrise",
+      "Sunset": "Sunset"
+    },
+    "DE": {
+      "prefJobs": "Tagesplan und Präferenzen",
+      "dateTime": "Datum / aktuelle Zeit",
+      "gotoMain": "Zum Haupt Menü",
+      "Sunrise": "Sonnenaufgang",
+      "Sunset": "Sonnenuntergang"
+    }
+  },
+
+
+  "piWeb": {
+    "EN": {
+      "editSchedule": "Edit Schedule",
+      "newSchedule": "New Schedule",
+      "addJob": "Add 'Job' to 'Day Schedule'",
+      "piLogFile": "pilight 'log' file '",
+      "notFound": "' not found! (Check access rights!)"
+    },
+    "DE": {
+      "editSchedule": "Tagesplan editieren",
+      "newSchedule": "Neuer Tagesplan",
+      "addJob": "'Job' zum Tagesplan hinzuf&uuml;gen",
+      "piLogFile": "pilight 'log' Datei '",
+      "notFound": "' nicht gefunden! (Zugriffsrechte richtig?)"
+    }
+  },
+
+
+  "piMain": {
+    "EN": {
+      "mainMenu": "Main Menu",
+      "mainMenuText": "Select function",
+      "mainTitle": "Show current Day Schedule and Prefereces",
+      "mainText": "Day Schedule / Prefs",
+      "editTitle": "Edit 'Schedule' (INI-File)/'Jobs' ",
+      "editText": "Schedule/Jobs",
+      "dayLogs": "Day Logs",
+      "docOverview": "Overview",
+      "docEdit": "Edit 'Day Schedule'",
+      "docExamples": "Schedule/Job Examples",
+      "docFeatures": "Job Features",
+      "terminate": "Quiet piSchedule"
+    },
+    "DE": {
+      "mainMenu": "Haupt Menü",
+      "mainMenuText": "Funktion wählen",
+      "mainTitle": "Tagesplan/Präferenzen zeigen",
+      "mainText": "Aktueller Tagesplan",
+      "editTitle": "'Tagesplan' (INI-File)/'Jobs' editieren",
+      "editText": "Tagesplan/Jobs",
+      "dayLogs": "Tages-Logs",
+      "docOverview": "Überblick",
+      "docEdit": "Tagesplan/Job editieren",
+      "docExamples": "Tagesplan/Job Beispiele",
+      "docFeatures": "Job Eigenschaften",
+      "terminate": "piSchedule beenden!"
+    }
+  },
+
+
+  "piLogs": {
+    "EN": {
+      "dayList": "Day List of Jobs",
+      "Today": "Today",
+      "selectDay": "Select a day",
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday",
+      "selectedDay": "selectedDay"
+    },
+    "DE": {
+      "dayList": "Liste der ausgeführten Jobs",
+      "Today": "Heute",
+      "selectDay": "Tag wählen",
+      "Monday": "Montag",
+      "Tuesday": "Dienstag",
+      "Wednesday": "Mittwoch",
+      "Thursday": "Donnerstag",
+      "Friday": "Freitag",
+      "Saturday": "Samstag",
+      "Sunday": "Sonntag",
+      "selectedDay": "Gewählter Tag"
+    }
+  }
+}

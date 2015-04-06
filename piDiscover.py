@@ -2,40 +2,12 @@ import socket
 import struct
 import re
 import json
-from pbkdf2 import crypt
 
-def getPrefs():
-
-    prefs = {}
-    server = ''
-    port = ''
-    error = ''
-
-    jsonPrefs = '/etc/pilight/config.json'
-    try:
-        prefsFile = open(jsonPrefs, 'r')
-        piPrefs = json.loads(prefsFile.read())
-    except:
-        print ("\n***  pilight 'prefs' file\n \033[1m'",
-        prefsPrefs, "'\033[0m not found!")
-        error = "  'pilight prefs' file not found!"
-        return [server, port, error, prefs]
-
-
-    jsonPrefs = 'piSchedule.prefs.json'
-    try:
-        prefsFile = open(jsonPrefs, 'r')
-        prefs = json.loads(prefsFile.read())
-    except:
-        print ("\n***  pilight/piScheduler 'prefs' file\n \033[1m'",
-        jsonPrefs, "'\033[0m not found!")
-        error = "  'prefs' file not found!"
-        return [server, port, error, prefs]
-
-    prefs['port_pilight'] = piPrefs['settings']['webserver-port']
-    #print ("\n***  pilight/piScheduler 'prefs' file:  \033[1m", jsonPrefs, "\033[0m")
-
-    return (prefs)
+# Automatically geolocate the connecting IP
+from urllib2 import urlopen
+from contextlib import closing
+import json
+freegeoIP = 'http://freegeoip.net/json/'
 
 
 def piDiscover(service, timeout=2, retries=1):
@@ -72,7 +44,6 @@ def piDiscover(service, timeout=2, retries=1):
                 break;
 
     r = responses.values()
-    #print ("discover:\n", r)
 
     if len(r) > 0:
        locationsrc = re.search('Location:([0-9.]+):(.*)', str(r[0]), re.IGNORECASE)
@@ -81,24 +52,18 @@ def piDiscover(service, timeout=2, retries=1):
            port = locationsrc.group(2).strip()
            error = ""
 
-    return [server, getPrefs(), error]
+    cPrefs = {}
 
+    configFile = '/etc/pilight/config.json'
+    try:
+        prefsFile = open(configFile, 'r')
+        cPrefs = json.loads(prefsFile.read())
+        port = cPrefs['settings']['webserver-port']
+        #print (" +++  piDiscover pilight/piSchedule  port >>" + port + "<<")
 
-def pw(pw):
-#---------------------------------
-    prefs = getPrefs()
-    hash = prefs['piHash']
+    except:
+        print (" +++  piDiscover ** pilight 'prefs' file  >>" + \
+        configFile + "<<  not found!")
+        error = "  'pilight prefs' file not found!"
 
-    #print("  piDiscover pw:", hash)
-    
-    if crypt(pw, hash) != hash:
-        print('  piWeb - Login failed. Password error')
-        return "<p>  piWeb - Login failed.</p>"
-
-    return None
-
-
-def authKey():
-#--------------------------------
-    prefs = getPrefs()
-    return str(prefs['piHash'])
+    return [server, port, error]

@@ -11,7 +11,7 @@ Only running a browser is required for setup, operation, logging and documentati
 
 For detailed *Use and Installation* see the documentation, please visit     
 
- * [Overview / Use and Installation](https://dl.dropboxusercontent.com/u/35444930/piScheduler//EN/piScheduleOverview.html)
+ * [Overview / Use and Installation](https://dl.dropboxusercontent.com/u/35444930/piScheduler/EN/piScheduleOverview.html)
  * [Scheduling Examples](https://dl.dropboxusercontent.com/u/35444930/piScheduler/EN/piScheduleExamples.html)
  * [Scheduling Features](https://dl.dropboxusercontent.com/u/35444930/piScheduler/EN/piScheduleFeatures.html)
 
