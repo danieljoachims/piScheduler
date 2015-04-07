@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# piScheduler - updating					gW  2015-04-05
+# piScheduler - updating                                        gW  2015-04-07_19
 # Download of piSchedule without any *.ini *.log files 
 #
 # Copyright (C) 2015 G.Wahl <gneandr@gmail.com>
@@ -27,8 +27,14 @@ cd ~
 
 wget https://dl.dropboxusercontent.com/u/35444930/piScheduler/piScheduler.zip  -O piScheduler.zip
 unzip piScheduler.zip -x */*.ini */*.log */piSchedule.prefs.json
+
+#unzip -jo piScheduler.zip piScheduler/install_piScheduler.sh -d ~/
+#unzip -jo piScheduler.zip piScheduler/update_piScheduler.sh -d ~/
+unzip -jo piScheduler.zip piScheduler/tmux.conf -d ~/
+unzip -jo piScheduler.zip piScheduler/tmuxStart.sh -d ~/
+
 ls -ll
 ls -ll piScheduler
 
 cd ~/piScheduler
-python piSchedule.py -ini
+~/tmuxStart.sh

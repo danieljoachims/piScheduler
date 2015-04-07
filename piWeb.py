@@ -186,7 +186,7 @@ def logList():
         output = str(output).replace("', '","").replace("']","").replace("['","")
 
     except:
-       msg = "  +++  " + xS("piWeb.piLogFile") + fLog +  " " + xS("notFound")
+       msg = " +++  " + xS("piWeb.piLogFile") + " "+ fLog + " " + xS("notFound")
        print (msg)
        #return msg
 

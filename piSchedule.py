@@ -201,7 +201,7 @@ def prefsRead():
             prefs = json.loads(prefsFile.read())
 
         except:
-            print  (str( "\n +++  " + xS("prefsFile") + " >>" +
+            print  (str( "\n +++  " + xS("prefsFile") + " >>" 
              + prefsJSONfile + "<< setup."))
 
             prefs = prefsSetup()
@@ -403,6 +403,7 @@ def jobListINI(jobList, name):
         lampe2; on,+:02;off,+:03:00
         lampe2; on,+01:02,sunrise;off,-01:30,sunset;on,~:10,18:00;off,~:15,21:05
    '''
+   now = datetime.datetime.now()
    for cJobs in jobList:
       cJobs = cJobs.strip()
       # strip out empty or comment lines 
@@ -601,9 +602,12 @@ def jobs_serve(jobs_event, name):
     try:
         listener = Listener(address, authkey="X")
     except:
+        clearTerm()
         err = str(sys.exc_info()[0])
         print("\n\n  *** piSchedule already running. Terminating! ***\n  "
                + err + "  >>" + prefs['server'] + ":" + str(int(prefs['port_pilight'])+1) + "<<")
+        
+        print("\n\n  *** To close a 'tmux' window/session press [Cntrl] [b] and then [x] *** ")
         os.kill(os.getpid(), signal.SIGTERM)
 
 
@@ -724,6 +728,8 @@ def jobs_serve(jobs_event, name):
         except:
            err = str(sys.exc_info()[0])
            print ("   ",name, str(err).replace("type 'exceptions.","").replace("'",""))
+           print("\n\n  *** To close a 'tmux' window/session press [Cntrl] [b] and then [x] *** ")
+
            os.kill(os.getpid(), signal.SIGTERM)
 
 
@@ -919,9 +925,14 @@ def main():
        pass
 
     print ('  piSchedule - Done.')
+    print("\n\n  *** To close a 'tmux' window/session press [Cntrl] [b] and then [x] *** ")
+
     os.kill(os.getpid(), signal.SIGTERM)
     #exit()
 
 #---------------------------------
 if __name__ == "__main__":
     main()
+    print ('  piSchedule - (main) - Done.')
+    print("\n\n  *** To close a 'tmux' window/session press [Cntrl] [b] and then [x] *** ")
+

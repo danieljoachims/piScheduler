@@ -266,7 +266,7 @@
 
    <script>
 
-      var language = '{{locale}}';
+      var language = "{{locale}}";
       console.log("piEdit Locale  language:" + language)
 
 
@@ -277,20 +277,20 @@
       };
 
       function openHelp(name) {
-          var main = "https://dl.dropboxusercontent.com/u/35444930/piScheduler/"+ language + "/"
+         var main = "https://dl.dropboxusercontent.com/u/35444930/piScheduler/"+ language + "/"
 
-          switch (name) {
-          case 'Job':
-             window.open(main + "piScheduleFeatures.html", '_blank');
-             break;
-          case 'DaySchedule':
-             window.open(main + "piScheduleOverview.html", '_blank');
-             break;
-          case 'editSchedule':
-             window.open(main + "piScheduleEdit.html", '_blank');
-             break;
-          }
-       }
+         switch (name) {
+         case 'Job':
+            window.open(main + "piScheduleFeatures.html", '_blank');
+            break;
+         case 'DaySchedule':
+            window.open(main + "piScheduleOverview.html", '_blank');
+            break;
+         case 'editSchedule':
+            window.open(main + "piScheduleEdit.html", '_blank');
+            break;
+         }
+      }
 
       function clearButton(name, title) {
          var button = $('#' + name)
