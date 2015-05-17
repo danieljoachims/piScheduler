@@ -58,7 +58,7 @@ def piDiscover(service, timeout=2, retries=1):
     try:
         prefsFile = open(configFile, 'r')
         cPrefs = json.loads(prefsFile.read())
-        port = cPrefs['settings']['webserver-port']
+        port = cPrefs['settings']['webserver-http-port']
         #print (" +++  piDiscover pilight/piSchedule  port >>" + port + "<<")
 
     except:
